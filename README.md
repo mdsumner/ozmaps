@@ -8,7 +8,9 @@ The goal of ozplot is to get maps of Australia to plot!
 Obtain a set of shapefiles
 --------------------------
 
-This block of code will download a ~1Gb zip file with many shapefiles in nested folders. I originally chose the MapInfo format, but those had empty geometries(!).
+This block of code will download a ~1.5Gb zip file with many shapefiles in nested folders. I originally chose the MapInfo format, but those had empty geometries(!).
+
+I discovered these links (ESRI Shapefile and MapInfo) at this site: <https://data.gov.au/dataset/psma-administrative-boundaries> .
 
 ``` r
 #f <- "https://data.gov.au/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/cb2d6c1c-fd4c-4fd7-b93b-3796425bc0de/download/aug17adminboundsmapinfotabformat20170828133827.zip"
@@ -84,12 +86,12 @@ plot(elec[1])
 ## state
 state <- read_psma(fs %>% dplyr::filter(grepl("STATE_POLYGON", file)) %>% dplyr::pull(fullname))
 plot(state[1])
+abline(v = 148, h = -43)
 ```
 
 <img src="man/figures/README-data-3.png" width="100%" />
 
 ``` r
-
 
 ## that is very high resolution, checkout 
 plot(state[1], xlim = c(147.7, 148.2), ylim = c(-43.3, -43.0))
