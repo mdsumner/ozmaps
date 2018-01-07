@@ -25,7 +25,7 @@ The goal of ozplot is to get maps of Australia to plot!
 This block of code will download a ~1.5Gb zip file with 
 many shapefiles in nested folders. I originally chose the MapInfo format, but those had empty geometries(!). 
 
-I discovered these links (ESRI Shapefile and MapInfo) at this site: https://data.gov.au/dataset/psma-administrative-boundaries . 
+
 
 ```{r download, eval = FALSE}
 #f <- "https://data.gov.au/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/cb2d6c1c-fd4c-4fd7-b93b-3796425bc0de/download/aug17adminboundsmapinfotabformat20170828133827.zip"
@@ -35,7 +35,7 @@ unzip(basename(f))
 
 ```
 
-
+I discovered these links (ESRI Shapefile and MapInfo) at this site: https://data.gov.au/dataset/psma-administrative-boundaries . 
 Build a data frame of the available file names, it's a 
 recursive tree of directories but we only need the ".shp$" values. 
 
@@ -45,6 +45,8 @@ fs <- tibble::tibble(fullname = list.files(".", recursive = TRUE, pattern = "shp
 
 ## keep file and fullname, a habit of mine
 fs <- fs %>% dplyr::mutate(file = basename(fullname)) %>% dplyr::select(file, fullname)
+
+fs 
 
 ## read all files and bind together in one object
 ## (I find problems using map_df so I just avoid it

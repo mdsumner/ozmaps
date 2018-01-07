@@ -10,8 +10,6 @@ Obtain a set of shapefiles
 
 This block of code will download a ~1.5Gb zip file with many shapefiles in nested folders. I originally chose the MapInfo format, but those had empty geometries(!).
 
-I discovered these links (ESRI Shapefile and MapInfo) at this site: <https://data.gov.au/dataset/psma-administrative-boundaries> .
-
 ``` r
 #f <- "https://data.gov.au/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/cb2d6c1c-fd4c-4fd7-b93b-3796425bc0de/download/aug17adminboundsmapinfotabformat20170828133827.zip"
 f <- "https://data.gov.au/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/53c24b8e-4f55-4eed-a189-2fc0dcca6381/download/aug17adminboundsesrishapefileordbffile20170821151234.zip"
@@ -19,7 +17,7 @@ download.file(f, basename(f), mode = "wb")
 unzip(basename(f))
 ```
 
-Build a data frame of the available file names, it's a recursive tree of directories but we only need the ".shp$" values.
+I discovered these links (ESRI Shapefile and MapInfo) at this site: <https://data.gov.au/dataset/psma-administrative-boundaries> . Build a data frame of the available file names, it's a recursive tree of directories but we only need the ".shp$" values.
 
 ``` r
 library(dplyr)
@@ -27,6 +25,22 @@ fs <- tibble::tibble(fullname = list.files(".", recursive = TRUE, pattern = "shp
 
 ## keep file and fullname, a habit of mine
 fs <- fs %>% dplyr::mutate(file = basename(fullname)) %>% dplyr::select(file, fullname)
+
+fs 
+#> # A tibble: 261 x 2
+#>    file                           fullname                                
+#>    <chr>                          <chr>                                   
+#>  1 ACT_GCCSA_2011_POLYGON_shp.shp AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#>  2 ACT_MB_2011_POLYGON_shp.shp    AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#>  3 ACT_SA1_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#>  4 ACT_SA2_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#>  5 ACT_SA3_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#>  6 ACT_SA4_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#>  7 NSW_GCCSA_2011_POLYGON_shp.shp AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#>  8 NSW_MB_2011_POLYGON_shp.shp    AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#>  9 NSW_SA1_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#> 10 NSW_SA2_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
+#> # ... with 251 more rows
 
 ## read all files and bind together in one object
 ## (I find problems using map_df so I just avoid it
