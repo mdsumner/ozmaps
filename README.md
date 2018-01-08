@@ -7,8 +7,8 @@ The goal of ozplot is to get maps of Australia to plot!
 
 The package doesn't do anything yet, it's just a place to park this code below.
 
-Obtain a set of shapefiles
---------------------------
+Obtain a set of polygon map files
+---------------------------------
 
 This block of code will download a ~1.5Gb zip file with many shapefiles in nested folders. I originally chose the MapInfo format, but those had empty geometries(!).
 
@@ -113,6 +113,7 @@ abline(v = 148, h = -43)
 
 ## that is very high resolution, checkout 
 plot(state[1], xlim = c(147.7, 148.2), ylim = c(-43.3, -43.0))
+abline(v = 148, h = -43)
 ```
 
 <img src="man/figures/README-data-4.png" width="100%" />
@@ -154,6 +155,7 @@ plot(state[1], xlim = 147.2385 + c(-1, 1)/30,
      ylim = -43.46973 + c(-1, 1)/30, border = NA)
 
 plot(st_geometry(simple_state), add = TRUE)
+abline(v = 147.2385, h = -43.46973)
 ```
 
 <img src="man/figures/README-cloudy-2.png" width="100%" />
