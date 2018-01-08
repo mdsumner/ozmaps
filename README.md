@@ -5,6 +5,8 @@ ozplot
 
 The goal of ozplot is to get maps of Australia to plot!
 
+The package doesn't do anything yet, it's just a place to park this code below.
+
 Obtain a set of shapefiles
 --------------------------
 
@@ -17,7 +19,9 @@ download.file(f, basename(f), mode = "wb")
 unzip(basename(f))
 ```
 
-I discovered these links (ESRI Shapefile and MapInfo) at this site: <https://data.gov.au/dataset/psma-administrative-boundaries> . Build a data frame of the available file names, it's a recursive tree of directories but we only need the ".shp$" values.
+I discovered these links (ESRI Shapefile and MapInfo) at this site: <https://data.gov.au/dataset/psma-administrative-boundaries>
+
+Build a data frame of the available file names, it's a recursive tree of directories but we only need the ".shp$" values.
 
 ``` r
 library(dplyr)
@@ -133,3 +137,23 @@ plot(simple_state[1])
 ```
 
 <img src="man/figures/README-data-6.png" width="100%" />
+
+Another location.
+
+``` r
+## that is very high resolution, checkout 
+plot(state[1], xlim = c(146.7, 148.2), ylim = c(-44.3, -43.0))
+abline(v = 147.2385, h = -43.46973)
+```
+
+<img src="man/figures/README-cloudy-1.png" width="100%" />
+
+``` r
+
+plot(state[1], xlim = 147.2385 + c(-1, 1)/30, 
+     ylim = -43.46973 + c(-1, 1)/30, border = NA)
+
+plot(st_geometry(simple_state), add = TRUE)
+```
+
+<img src="man/figures/README-cloudy-2.png" width="100%" />
