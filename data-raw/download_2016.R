@@ -26,6 +26,7 @@ read_psma <- function(x, keep = 1) {
 ## @knitr build-data
 
 
+
 ## state (33 Mb)
 state <- read_psma(fs %>% dplyr::filter(grepl("STATE_POLYGON", file)) %>% dplyr::pull(fullname))
 library(rmapshaper)
