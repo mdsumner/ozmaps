@@ -1,9 +1,20 @@
-Package: ozplot
+Package: ozmaps
 Version: 0.0.0.9000
-Title: What the Package Does (one line, title case)
-Description: What the package does (one paragraph).
-Authors@R: person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre"))
+Title: Australia Maps
+Description: Draw maps of Australian coastline and administrative regions. 
+Authors@R: c(person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre")), 
+             person("Dianne", "Cook", role = "ctb"))
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
+Depends: R (>= 3.3.0)
+Imports: 
+    oz
+Suggests: 
+    ochRe,
+    rmapshaper (> 0.3.1),
+    testthat,
+    tibble,
+    covr
+RoxygenNote: 6.0.1

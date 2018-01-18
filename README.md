@@ -1,161 +1,101 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-ozplot
-======
+[![Travis build status](https://travis-ci.org/mdsumner/ozplot.svg?branch=master)](https://travis-ci.org/mdsumner/ozplot) [![AppVeyor Build Status](https://ci.appveyor.com/mdsumner/ozplot)](https://ci.appveyor.com/api/projects/status/github//mdsumner/ozplot/?branch=master&svg=true) [![Coverage status](https://codecov.io/gh/mdsumner/ozplot/branch/master/graph/badge.svg)](https://codecov.io/github/mdsumner/ozplot?branch=master) [![CRAN status](http://www.r-pkg.org/badges/version/ozmaps)](https://cran.r-project.org/package=ozmaps)
 
-The goal of ozplot is to get maps of Australia to plot!
+Overview
+========
 
-The package doesn't do anything yet, it's just a place to park this code below.
+The goal of ozmaps is to get maps of Australia to plot!
 
-Obtain a set of polygon map files
----------------------------------
+Installation
+============
 
-This block of code will download a ~1.5Gb zip file with many shapefiles in nested folders. I originally chose the MapInfo format, but those had empty geometries(!).
-
-``` r
-#f <- "https://data.gov.au/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/cb2d6c1c-fd4c-4fd7-b93b-3796425bc0de/download/aug17adminboundsmapinfotabformat20170828133827.zip"
-f <- "https://data.gov.au/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/53c24b8e-4f55-4eed-a189-2fc0dcca6381/download/aug17adminboundsesrishapefileordbffile20170821151234.zip"
-download.file(f, basename(f), mode = "wb")
-unzip(basename(f))
-```
-
-I discovered these links (ESRI Shapefile and MapInfo) at this site: <https://data.gov.au/dataset/psma-administrative-boundaries>
-
-Build a data frame of the available file names, it's a recursive tree of directories but we only need the ".shp$" values.
+ozmaps may be installed directly from github.
 
 ``` r
-library(dplyr)
-fs <- tibble::tibble(fullname = list.files(".", recursive = TRUE, pattern = "shp$"))
-
-## keep file and fullname, a habit of mine
-fs <- fs %>% dplyr::mutate(file = basename(fullname)) %>% dplyr::select(file, fullname)
-
-fs 
-#> # A tibble: 261 x 2
-#>    file                           fullname                                
-#>    <chr>                          <chr>                                   
-#>  1 ACT_GCCSA_2011_POLYGON_shp.shp AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#>  2 ACT_MB_2011_POLYGON_shp.shp    AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#>  3 ACT_SA1_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#>  4 ACT_SA2_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#>  5 ACT_SA3_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#>  6 ACT_SA4_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#>  7 NSW_GCCSA_2011_POLYGON_shp.shp AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#>  8 NSW_MB_2011_POLYGON_shp.shp    AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#>  9 NSW_SA1_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#> 10 NSW_SA2_2011_POLYGON_shp.shp   AUG17_AdminBounds_ESRIShapefileorDBFfil…
-#> # ... with 251 more rows
-
-## read all files and bind together in one object
-## (I find problems using map_df so I just avoid it
-## and ensure sf is attached)
-read_psma <- function(x) {
-  library(sf)
-  do.call(rbind, purrr::map(x, sf::read_sf))
-}
+devtools::install_github("mdsumner/ozmaps")
 ```
+
+The package includes some *simple features* data, which can be used independently of ozmaps with the 'sf' package. If required, install `sf` from CRAN.
 
 ``` r
-## ignore state and see what layers there are
-## there are 32 different kinds of layers
-sort(unique(unlist(lapply(strsplit(fs$file, "_"), function(x) paste(tail(x, -1), collapse = "_")))))
-#>  [1] "COMM_ELECTORAL_POLYGON_shp.shp"  "GCCSA_2011_POLYGON_shp.shp"     
-#>  [3] "GCCSA_2016_POLYGON_shp.shp"      "IARE_2011_POLYGON_shp.shp"      
-#>  [5] "IARE_2016_POLYGON_shp.shp"       "ILOC_2011_POLYGON_shp.shp"      
-#>  [7] "ILOC_2016_POLYGON_shp.shp"       "IREG_2011_POLYGON_shp.shp"      
-#>  [9] "IREG_2016_POLYGON_shp.shp"       "LGA_POLYGON_shp.shp"            
-#> [11] "LOCALITY_POLYGON_shp.shp"        "MB_2011_POLYGON_shp.shp"        
-#> [13] "MB_2016_POLYGON_shp.shp"         "REMOTENESS_2011_POLYGON_shp.shp"
-#> [15] "SA1_2011_POLYGON_shp.shp"        "SA1_2016_POLYGON_shp.shp"       
-#> [17] "SA2_2011_POLYGON_shp.shp"        "SA2_2016_POLYGON_shp.shp"       
-#> [19] "SA3_2011_POLYGON_shp.shp"        "SA3_2016_POLYGON_shp.shp"       
-#> [21] "SA4_2011_POLYGON_shp.shp"        "SA4_2016_POLYGON_shp.shp"       
-#> [23] "SOS_2011_POLYGON_shp.shp"        "SOSR_2011_POLYGON_shp.shp"      
-#> [25] "STATE_ELECTORAL_POLYGON_shp.shp" "STATE_POLYGON_shp.shp"          
-#> [27] "SUA_2011_POLYGON_shp.shp"        "TOWN_POINT_shp.shp"             
-#> [29] "UCL_2011_POLYGON_shp.shp"        "WARD_POLYGON_shp.shp"
+install.packages("sf")
 ```
 
-No we can filter on the state-removed strings to get the entire set for the country.
+Usage
+-----
+
+Plot Australia with states.
 
 ``` r
-## all LGA
-lga <- read_psma(fs %>% dplyr::filter(grepl("LGA_POLYGON", file)) %>% dplyr::pull(fullname))
-
-## note that the "geometry" column is sticky, we
-## subset like this to avoid faceting on all columns
-plot(lga[1])
+library(ozmaps)
+ozmap()
 ```
 
-<img src="man/figures/README-data-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+Plot Australia without states.
 
 ``` r
-
-## electoral
-elec <- read_psma(fs %>% dplyr::filter(grepl("STATE_ELECTORAL_POLYGON", file)) %>% dplyr::pull(fullname))
-
-plot(elec[1])
+ozmap(states = FALSE)
 ```
 
-<img src="man/figures/README-data-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+Add to an existing plot.
+
+``` r
+plot(quakes[c("long", "lat")], xlim = c(120, 190))
+ozmap(add = TRUE)
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+Obtain the data used in `sf` form.
+
+``` r
+sf_oz <- ozmap_data("ozmap_states")
+#> returning `sf` data format
+#>  to use/plot ensure `sf` package is installed, then `library(sf)`
+
+tibble::as_tibble(sf_oz)
+#> Simple feature collection with 11 features and 3 fields
+#> geometry type:  MULTIPOLYGON
+#> dimension:      XY
+#> bbox:           xmin: 112.9194 ymin: -54.75042 xmax: 159.1065 ymax: -9.240167
+#> epsg (SRID):    4326
+#> proj4string:    +proj=longlat +datum=WGS84 +no_defs
+#> # A tibble: 11 x 4
+#>    name                         type   adm1_code                  geometry
+#>    <chr>                        <chr>  <chr>        <sf_geometry [degree]>
+#>  1 Macquarie Island             <NA>   AUS+00?   MULTIPOLYGON (((158.8657…
+#>  2 Jervis Bay Territory         Terri… AUS-1932  MULTIPOLYGON (((150.6131…
+#>  3 Northern Territory           Terri… AUS-2650  MULTIPOLYGON (((136.6955…
+#>  4 Western Australia            State  AUS-2651  MULTIPOLYGON (((122.2469…
+#>  5 Australian Capital Territory Terri… AUS-2653  MULTIPOLYGON (((149.3818…
+#>  6 New South Wales              State  AUS-2654  MULTIPOLYGON (((150.7038…
+#>  7 South Australia              State  AUS-2655  MULTIPOLYGON (((137.6229…
+#>  8 Victoria                     State  AUS-2656  MULTIPOLYGON (((146.4898…
+#>  9 Queensland                   State  AUS-2657  MULTIPOLYGON (((153.4873…
+#> 10 Norfolk Island               Terri… AUS-2659  MULTIPOLYGON (((159.0689…
+#> 11 Tasmania                     State  AUS-2660  MULTIPOLYGON (((147.364 …
+```
+
+Plot with a custom palette.
+
+``` r
+library(sf)
+nmjr <- ochRe::ochre_pal()(dim(sf_oz)[1])
+plot(st_geometry(sf_oz), col = nmjr)
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
 
 ``` r
 
-## state
-state <- read_psma(fs %>% dplyr::filter(grepl("STATE_POLYGON", file)) %>% dplyr::pull(fullname))
-plot(state[1])
-abline(v = 148, h = -43)
+## soon...plot directly with ggplot2
+library(ggplot2)
+ggplot(sf_oz, aes(fill = name)) + geom_sf() + coord_sf(crs = "+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84") + scale_fill_manual(values = nmjr)
 ```
 
-<img src="man/figures/README-data-3.png" width="100%" />
-
-``` r
-
-## that is very high resolution, checkout 
-plot(state[1], xlim = c(147.7, 148.2), ylim = c(-43.3, -43.0))
-abline(v = 148, h = -43)
-```
-
-<img src="man/figures/README-data-4.png" width="100%" />
-
-``` r
-
-pryr::object_size(state)
-#> 33.8 MB
-
-## use rmapshaper for topological simplification
-## (but avoid date columns which trigger a bug in 0.3.0)
-simple_state <- rmapshaper::ms_simplify(state[c("ST_PLY_PID", "STATE_PID", "geometry")])
-pryr::object_size(simple_state)
-#> 3.44 MB
-plot(simple_state[1], xlim = c(147.7, 148.2), ylim = c(-43.3, -43.0))
-```
-
-<img src="man/figures/README-data-5.png" width="100%" />
-
-``` r
-plot(simple_state[1])
-```
-
-<img src="man/figures/README-data-6.png" width="100%" />
-
-Another location.
-
-``` r
-## that is very high resolution, checkout 
-plot(state[1], xlim = c(146.7, 148.2), ylim = c(-44.3, -43.0))
-abline(v = 147.2385, h = -43.46973)
-```
-
-<img src="man/figures/README-cloudy-1.png" width="100%" />
-
-``` r
-
-plot(state[1], xlim = 147.2385 + c(-1, 1)/30, 
-     ylim = -43.46973 + c(-1, 1)/30, border = NA)
-
-plot(st_geometry(simple_state), add = TRUE)
-abline(v = 147.2385, h = -43.46973)
-```
-
-<img src="man/figures/README-cloudy-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-7-2.png" width="100%" />

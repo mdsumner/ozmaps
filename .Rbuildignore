@@ -1,3 +1,10 @@
-^ozplot\.Rproj$
+^ozmaps\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
+^data-raw$
+^AUG17_AdminBounds_ESRIShapefileorDBFfile_20170821151234$
+^aug17adminboundsesrishapefileordbffile20170821151234\.zip$
+^\.travis\.yml$
+^appveyor\.yml$
+^codecov\.yml$
+^docs$

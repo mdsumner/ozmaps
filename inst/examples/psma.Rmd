@@ -1,0 +1,95 @@
+---
+title: "Untitled"
+author: "Michael Sumner"
+date: "18/01/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Detailed data (WIP)
+The material below doesn't actually match this package yet, this is just here for now until simplifying the lga and electoral boundaries is done. 
+
+## Obtain a set of polygon map files 
+
+
+This block of code will download a ~1.5Gb zip file with 
+many shapefiles in nested folders. 
+
+
+
+
+```{r download, eval=FALSE}
+```
+I discovered these links (ESRI Shapefile and MapInfo) at this site: https://data.gov.au/dataset/psma-administrative-boundaries 
+
+
+I originally chose the MapInfo format, but those had empty geometries(!). 
+
+Build a data frame of the available file names, it's a 
+recursive tree of directories but we only need the ".shp$" values. 
+
+```{r files}
+
+```
+
+
+```{r explore}
+## ignore state and see what layers there are
+## there are 32 different kinds of layers
+sort(unique(unlist(lapply(strsplit(fs$file, "_"), function(x) paste(tail(x, -1), collapse = "_")))))
+```
+
+
+No we can filter on the state-removed strings to get the entire set for the country. 
+
+```{r data}
+## all LGA
+lga <- read_psma(fs %>% dplyr::filter(grepl("LGA_POLYGON", file)) %>% dplyr::pull(fullname))
+
+## note that the "geometry" column is sticky, we
+## subset like this to avoid faceting on all columns
+plot(lga[1])
+
+## electoral
+elec <- read_psma(fs %>% dplyr::filter(grepl("STATE_ELECTORAL_POLYGON", file)) %>% dplyr::pull(fullname))
+
+plot(elec[1])
+
+## state
+state <- read_psma(fs %>% dplyr::filter(grepl("STATE_POLYGON", file)) %>% dplyr::pull(fullname))
+plot(state[1])
+abline(v = 148, h = -43)
+
+## that is very high resolution, checkout 
+plot(state[1], xlim = c(147.7, 148.2), ylim = c(-43.3, -43.0))
+abline(v = 148, h = -43)
+
+pryr::object_size(state)
+
+## use rmapshaper for topological simplification
+## (but avoid date columns which trigger a bug in 0.3.0)
+simple_state <- rmapshaper::ms_simplify(state[c("ST_PLY_PID", "STATE_PID", "geometry")])
+pryr::object_size(simple_state)
+plot(simple_state[1], xlim = c(147.7, 148.2), ylim = c(-43.3, -43.0))
+plot(simple_state[1])
+```
+
+Another location. 
+
+```{r cloudy}
+## that is very high resolution, checkout 
+plot(state[1], xlim = c(146.7, 148.2), ylim = c(-44.3, -43.0))
+abline(v = 147.2385, h = -43.46973)
+
+plot(state[1], xlim = 147.2385 + c(-1, 1)/30, 
+     ylim = -43.46973 + c(-1, 1)/30, border = NA)
+
+plot(st_geometry(simple_state), add = TRUE)
+abline(v = 147.2385, h = -43.46973)
+
+
+
+```
