@@ -6,9 +6,9 @@ editor_options:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
- [![Travis build status](https://travis-ci.org/mdsumner/ozplot.svg?branch=master)](https://travis-ci.org/mdsumner/ozplot)
-  [![AppVeyor Build Status](https://ci.appveyor.com/mdsumner/ozplot)](https://ci.appveyor.com/api/projects/status/github//mdsumner/ozplot/?branch=master&svg=true)
-   [![Coverage status](https://codecov.io/gh/mdsumner/ozplot/branch/master/graph/badge.svg)](https://codecov.io/github/mdsumner/ozplot?branch=master)
+ [![Travis build status](https://travis-ci.org/mdsumner/ozmaps.svg?branch=master)](https://travis-ci.org/mdsumner/ozmaps)
+  [![AppVeyor Build Status](https://ci.appveyor.com/mdsumner/ozmaps)](https://ci.appveyor.com/api/projects/status/github//mdsumner/ozmaps/?branch=master&svg=true)
+   [![Coverage status](https://codecov.io/gh/mdsumner/ozmaps/branch/master/graph/badge.svg)](https://codecov.io/github/mdsumner/ozmaps?branch=master)
 [![CRAN status](http://www.r-pkg.org/badges/version/ozmaps)](https://cran.r-project.org/package=ozmaps)
 
  
