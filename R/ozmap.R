@@ -33,16 +33,21 @@ ozmap <- function(states = TRUE, add = FALSE, ...) {
 #' @export
 #'
 #' @examples
-#' ozmap_data("ozmap_country")
-ozmap_data <- function(data = c("ozmap_states", "ozmap_country", "electoral", "lga"), quiet = FALSE, ...) {
+#' ozmap_data("country")
+ozmap_data <- function(data = c("states", "country", "electoral", "lga"), quiet = FALSE, ...) {
   data <- match.arg(data)
-  if (data == "ozmap_states") {
+  if (data == "states") {
     out <- ozmap_states_data(quiet = quiet)
   }
-  if (data == "ozmap_country") {
+  if (data == "country") {
     out <- ozmap_country_data(quiet = quiet)
   }
-
+  if (data == "electoral") {
+   #grrrr
+    #tfile <- tempfile(fileext = ".geojson")
+    #gjson <- geojsonio::geojson_write(electoral, file = tfile)
+    #out <- sf::st_as_sf(geojsonio::geojson_sp(geojsonio::geojson_read(tfile)))
+  }
   out
 }
 ozmap_states_data <- function(..., quiet = FALSE) {

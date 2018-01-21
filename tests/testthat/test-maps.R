@@ -1,9 +1,9 @@
  context("test-maps.R")
  test_that("data is in sf form", {
-           ozmap_data("ozmap_country") %>%
+           ozmap_data("country") %>%
              expect_s3_class("sf") %>%
              expect_s3_class("tbl_df")
-           ozmap_data("ozmap_states") %>%
+           ozmap_data("states") %>%
              expect_s3_class("sf") %>%
              expect_s3_class("tbl_df")
 }
