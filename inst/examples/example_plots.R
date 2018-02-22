@@ -1,4 +1,4 @@
-load('data/aus_map.Rda')
+load('data/state_map.Rda')
 load('data/sa2_map.Rda')
 load('data/sa4_map.Rda')
 load('data/elect_map.Rda')
@@ -8,7 +8,7 @@ library(ochRe)
 
 
 #Some example plots
-aus_map %>%
+state_map %>%
   ggplot() + geom_polygon(aes(long, lat, group = group),
                           fill = 'grey90',
                           colour = 'black') +
