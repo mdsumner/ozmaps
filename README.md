@@ -102,3 +102,22 @@ ggplot(sf_oz, aes(fill = name)) + geom_sf() + coord_sf(crs = "+proj=lcc +lon_0=1
 ```
 
 <img src="man/figures/README-unnamed-chunk-7-2.png" width="100%" />
+
+Plot the ABS layers (from 2016).
+
+``` r
+
+ozmap("abs_sa4", col = ochRe::ochre_pal()(nrow(abs_sa4)))
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+
+``` r
+
+
+ozmap("abs_gccsa", col = ochRe::ochre_pal()(nrow(abs_gccsa)))
+```
+
+<img src="man/figures/README-unnamed-chunk-8-2.png" width="100%" />
+
+Please note that the 'ozmaps' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

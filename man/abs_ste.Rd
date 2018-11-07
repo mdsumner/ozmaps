@@ -55,12 +55,6 @@ The mesh blocks are not included.
 }
 }
 
-\examples{
-\dontrun{
-library(sf)
-plot(abs_ste)
-}
-}
 \seealso{
 The script to create the data set set: data-raw/abs-inbuilt.R
 }

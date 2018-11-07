@@ -43,7 +43,8 @@ ozmap_data <- function(data = "states", quiet = FALSE, ...) {
   out <- switch(data,
                 states = ozmap_states_data(...),
                 country = ozmap_country_data(...),
-                abs_ced = ozmap_abs_gccsa_data(...),
+                abs_ced = ozmap_abs_ced_data(...),
+                abs_gccsa= ozmap_abs_gccsa_data(...),
                 abs_ireg = ozmap_abs_ireg_data(...),
                 abs_lga = ozmap_abs_lga_data(...),
                 abs_ra = ozmap_abs_ra_data(...),
@@ -70,6 +71,10 @@ ozmap_states_data <- function(...) {
 }
 ozmap_country_data <- function(...) {
   ozmap_country
+}
+
+ozmap_abs_ced_data <- function(...) {
+  abs_ced
 }
 ozmap_abs_gccsa_data <- function(...){
   abs_gccsa

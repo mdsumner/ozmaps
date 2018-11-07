@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • ozmaps</title>
+<title>Australian Bureau of Statistics (ABS) map data — abs_ste • ozmaps</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,11 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Australian Bureau of Statistics (ABS) map data — abs_ste" />
+
+<meta property="og:description" content="These data sets are simplifications of the formal statistical areas
+and regions published by the ABS in 2016." />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -46,7 +50,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -92,60 +96,75 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Australian Bureau of Statistics (ABS) map data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mdsumner/ozmaps/blob/master/R/ozmaps-package.R'><code>R/ozmaps-package.R</code></a></small>
+    <div class="hidden name"><code>abs_ste.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>These data sets are simplifications of the formal statistical areas
+and regions published by the ABS in 2016.</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='no'>abs_ste</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="abs_ste.html">abs_ste</a></code> </p>
-        </td>
-        <td><p>Australian Bureau of Statistics (ABS) map data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ozmap.html">ozmap()</a></code> </p>
-        </td>
-        <td><p>Australia map</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ozmap_data.html">ozmap_data()</a></code> </p>
-        </td>
-        <td><p>Australia map data</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ozmap_states.html">ozmap_states</a></code> </p>
-        </td>
-        <td><p>Australian map data</p></td>
-      </tr>
-    </tbody>
-    </table>
+    <p>Simple features data frame with</p><dl class='dl-horizontal'>
+<dt>NAME</dt><dd><p>Area name</p></dd>
+<dt>geometry</dt><dd><p>Geometry column in 'sfc' format</p></dd>
+</dl>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Each layer was read from the source file with 'sf' package and attributes were removed, leaving a single 'NAME'
+column from the year-specific column names. The geometry has been
+simplified using `rmapshaper::ms_simplify` with default arguments (0.05 detail).</p>
+<p>Several layers are not included from the total available.</p>
+<p>The entire nation layer 'AUST' is not included
+as it is the union of the State and Territory layer.</p>
+<p>Statistical Areas Level 1 is not included as it is very large (56Mb after simplification).</p>
+<p>The mesh blocks are not included.</p>
+    
+    <h2 class="hasAnchor" id="data-layers"><a class="anchor" href="#data-layers"></a>Data layers</h2>
+
+    
+    <dl class='dl-horizontal'>
+<dt>abs_ced</dt><dd><p>Commonwealth Electoral Divisions</p></dd>
+<dt>abs_gccsa</dt><dd><p>Greater Capital City Statistical Areas</p></dd>
+<dt>abs_ireg</dt><dd><p>Indigenous Regions</p></dd>
+<dt>abs_lga</dt><dd><p>Local Goverment Areas</p></dd>
+<dt>abs_ra</dt><dd><p>Remoteness Structure</p></dd>
+<dt>abs_sa2</dt><dd><p>Statistical Areas Level 2</p></dd>
+<dt>abs_sa3</dt><dd><p>Statistical Areas Level 3</p></dd>
+<dt>abs_sa4</dt><dd><p>Statistical Areas Level 4</p></dd>
+<dt>abs_sed</dt><dd><p>State Electoral Divisions</p></dd>
+<dt>abs_ste</dt><dd><p>State and Territory</p></dd>
+</dl>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>The script to create the data set set: data-raw/abs-inbuilt.R</p></div>
+    
+
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#details">Details</a></li>
+
+      <li><a href="#data-layers">Data layers</a></li>
+
+      <li><a href="#see-also">See also</a></li>
+          </ul>
+
   </div>
 </div>
 

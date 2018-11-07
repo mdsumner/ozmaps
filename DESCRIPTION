@@ -17,3 +17,5 @@ Suggests:
     covr
 RoxygenNote: 6.1.0
 Remotes: ropenscilabs/ochRe
+URL: https://github.com/mdsumner/ozmaps
+BugReports: https://github.com/mdsumner/ozmaps/issues

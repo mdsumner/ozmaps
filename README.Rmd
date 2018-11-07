@@ -86,3 +86,16 @@ plot(st_geometry(sf_oz), col = nmjr)
 library(ggplot2)
 ggplot(sf_oz, aes(fill = name)) + geom_sf() + coord_sf(crs = "+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84") + scale_fill_manual(values = nmjr)
 ```
+
+
+Plot the ABS layers (from 2016). 
+
+```{r}
+
+ozmap("abs_sa4", col = ochRe::ochre_pal()(nrow(abs_sa4)))
+
+
+ozmap("abs_gccsa", col = ochRe::ochre_pal()(nrow(abs_gccsa)))
+```
+
+ Please note that the 'ozmaps' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

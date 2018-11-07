@@ -67,9 +67,10 @@ NULL
 #' }
 #'
 #' @examples
-#' \dontrun{
-#' library(sf)
-#' plot(abs_ste)
-#' }
+#' ozmap("abs_ste)
+#'
+#' ozmap("abs_gccsa", col = sample(rainbow(nrow(abs_gccsa), alpha = .4)))
+#' opal <- ochRe::ochre_pal()
+#' ozmap("abs_sa4", col = opal(30))
 #' @aliases abs_ced abs_gccsa abs_ireg abs_lga abs_ra abs_sa2 abs_sa3 abs_sa4 abs_sed
 "abs_ste"

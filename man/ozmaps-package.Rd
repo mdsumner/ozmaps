@@ -8,6 +8,14 @@
 \description{
 Draw maps of Australian coastline and administrative regions.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/mdsumner/ozmaps}
+  \item Report bugs at \url{https://github.com/mdsumner/ozmaps/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Michael Sumner \email{mdsumner@gmail.com}
 
