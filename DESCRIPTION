@@ -1,5 +1,5 @@
 Package: ozmaps
-Version: 0.0.0.9000
+Version: 0.0.1
 Title: Australia Maps
 Description: Draw maps of Australian coastline and administrative regions. 
 Authors@R: c(person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre")), 
@@ -17,4 +17,4 @@ Suggests:
     rmapshaper (> 0.3.1),
     testthat,
     covr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
