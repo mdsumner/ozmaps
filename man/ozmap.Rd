@@ -4,14 +4,14 @@
 \alias{ozmap}
 \title{Australia map}
 \usage{
-ozmap(states = TRUE, add = FALSE, ...)
+ozmap(x = "ozmap_country", ..., add = FALSE)
 }
 \arguments{
-\item{states}{include state boundaries, `TRUE` by default}
+\item{x}{name of data set to use, default is `ozmap_country`}
+
+\item{...}{arguments passed to ...}
 
 \item{add}{add to existing plot, `FALSE` by default}
-
-\item{...}{arguments passed to `oz::oz`}
 }
 \value{
 nothing
@@ -20,17 +20,10 @@ nothing
 Draw a map of Australia, with or without states.
 }
 \details{
-This function calls `oz::oz()` to draw a basic outline. The
 outline data is purely in longitude-latitude form, see
 `ozmap_data()` to obtain the data itself.`
-}
-\examples{
-ozmap(states = FALSE, col = "firebrick", lwd = 4)
-ozmap(states = TRUE, add = TRUE)
 
-## further arguments may be passed to oz::oz, like coast
-ozmap(states = FALSE, col = "dodgerblue", lwd = 4)
-ozmap(states = TRUE, add = TRUE, coast = FALSE)
+ozmap_country, ozmap_states
 }
 \seealso{
 ozmap_data

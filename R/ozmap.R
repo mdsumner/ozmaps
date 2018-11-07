@@ -2,25 +2,24 @@
 #'
 #' Draw a map of Australia, with or without states.
 #'
-#' This function calls `oz::oz()` to draw a basic outline. The
 #' outline data is purely in longitude-latitude form, see
 #' `ozmap_data()` to obtain the data itself.`
-#' @param states include state boundaries, `TRUE` by default
+#'
+#' ozmap_country, ozmap_states
+#' abs_* see `abs_ced`
+#' @param x name of data set to use, default is `ozmap_country`
 #' @param add add to existing plot, `FALSE` by default
-#' @param ... arguments passed to `oz::oz`
+#' @param ... arguments passed to ...
 #' @seealso ozmap_data
 #' @return nothing
 #' @export
 #'
 #' @examples
-#' ozmap(states = FALSE, col = "firebrick", lwd = 4)
-#' ozmap(states = TRUE, add = TRUE)
-#'
-#' ## further arguments may be passed to oz::oz, like coast
-#' ozmap(states = FALSE, col = "dodgerblue", lwd = 4)
-#' ozmap(states = TRUE, add = TRUE, coast = FALSE)
-ozmap <- function(states = TRUE, add = FALSE, ...) {
-  oz::oz(states = states, add = add, ...)
+ozmap <- function(x = "ozmap_states", ..., add = FALSE) {
+  if ("states" %in% names(list(...))) {
+    warning("states argument is deprecated, see 'oz::oz()' function")
+  }
+
 }
 
 #' Australia map data
@@ -34,20 +33,20 @@ ozmap <- function(states = TRUE, add = FALSE, ...) {
 #'
 #' @examples
 #' ozmap_data("country")
-ozmap_data <- function(data = c("states", "country", "electoral", "lga"), quiet = FALSE, ...) {
-  data <- match.arg(data)
-  if (data == "states") {
-    out <- ozmap_states_data(quiet = quiet)
-  }
+ozmap_data <- function(data = "states", quiet = FALSE, ...) {
+  switch(data,
+         states = ozmap_states_data(quiet = quiet),
+         country = ozma_countr
   if (data == "country") {
     out <- ozmap_country_data(quiet = quiet)
   }
   if (data == "electoral") {
-   #grrrr
-    #tfile <- tempfile(fileext = ".geojson")
-    #gjson <- geojsonio::geojson_write(electoral, file = tfile)
-    #out <- sf::st_as_sf(geojsonio::geojson_sp(geojsonio::geojson_read(tfile)))
+    out <- abs_ced
   }
+  if (data == "lga") {
+    out <- abs_lga
+  }
+
   out
 }
 ozmap_states_data <- function(..., quiet = FALSE) {

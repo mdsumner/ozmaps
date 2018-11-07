@@ -9,9 +9,8 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Depends: R (>= 3.3.0), 
+         oz,
          tibble
-Imports: 
-    oz
 Suggests: 
     ochRe,
     rmapshaper (> 0.3.1),
