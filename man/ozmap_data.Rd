@@ -4,8 +4,7 @@
 \alias{ozmap_data}
 \title{Australia map data}
 \usage{
-ozmap_data(data = c("states", "country", "electoral", "lga"),
-  quiet = FALSE, ...)
+ozmap_data(data = "states", quiet = FALSE, ...)
 }
 \arguments{
 \item{data}{name of dat to return, see details}

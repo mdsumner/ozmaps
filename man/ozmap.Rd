@@ -4,7 +4,7 @@
 \alias{ozmap}
 \title{Australia map}
 \usage{
-ozmap(x = "ozmap_country", ..., add = FALSE)
+ozmap(x = "states", ..., add = FALSE)
 }
 \arguments{
 \item{x}{name of data set to use, default is `ozmap_country`}
@@ -23,7 +23,12 @@ Draw a map of Australia, with or without states.
 outline data is purely in longitude-latitude form, see
 `ozmap_data()` to obtain the data itself.`
 
-ozmap_country, ozmap_states
+states, country, abs_* see `abs_ced`
+}
+\examples{
+ozmap()
+ozmap("country")
+ozmap("abs_ced")  ## commonwealth (national) electoral divisions
 }
 \seealso{
 ozmap_data

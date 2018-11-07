@@ -39,6 +39,22 @@ Statistical Areas Level 1 is not included as it is very large (56Mb after simpli
 
 The mesh blocks are not included.
 }
+\section{Data layers }{
+
+\describe{
+\item{abs_ced}{Commonwealth Electoral Divisions}
+\item{abs_gccsa}{Greater Capital City Statistical Areas}
+\item{abs_ireg}{Indigenous Regions}
+\item{abs_lga}{Local Goverment Areas}
+\item{abs_ra}{Remoteness Structure}
+\item{abs_sa2}{Statistical Areas Level 2}
+\item{abs_sa3}{Statistical Areas Level 3}
+\item{abs_sa4}{Statistical Areas Level 4}
+\item{abs_sed}{State Electoral Divisions}
+\item{abs_ste}{State and Territory}
+}
+}
+
 \examples{
 \dontrun{
 library(sf)
