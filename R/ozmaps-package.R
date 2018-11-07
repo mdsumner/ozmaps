@@ -1,7 +1,9 @@
 #' @keywords internal
 "_PACKAGE"
 
-globalVariables(c("ozmap_country", "ozmap_states"))
+globalVariables(c("ozmap_country", "ozmap_states",
+                  "abs_ced", "abs_gccsa", "abs_ireg", "abs_lga", "abs_ra",
+                  "abs_sa2", "abs_sa3", "abs_sa4", "abs_sed", "abs_ste"))
 
 
 #' Australian map data
@@ -15,6 +17,7 @@ globalVariables(c("ozmap_country", "ozmap_states"))
 #' @name ozmap_states
 #' @aliases ozmap_country
 #' @docType data
+#' @importFrom tibble tibble
 NULL
 
 

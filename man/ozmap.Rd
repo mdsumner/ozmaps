@@ -14,7 +14,7 @@ ozmap(x = "states", ..., add = FALSE)
 \item{add}{add to existing plot, `FALSE` by default}
 }
 \value{
-nothing
+the data set used, sometimes sf sometimes oz format
 }
 \description{
 Draw a map of Australia, with or without states.

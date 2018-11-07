@@ -12,7 +12,7 @@
 #' @param add add to existing plot, `FALSE` by default
 #' @param ... arguments passed to ...
 #' @seealso ozmap_data
-#' @return nothing
+#' @return the data set used, sometimes sf sometimes oz format
 #' @export
 #'
 #' @examples
@@ -25,6 +25,7 @@ ozmap <- function(x = "states", ..., add = FALSE) {
   }
   x <- ozmap_data(x, quiet  = TRUE)
   plot_sfc(x, add = add, ...)
+  invisible(x)
 }
 
 #' Australia map data
@@ -112,7 +113,7 @@ plot_bbox <- function(x) {
 #        family = "Pebesma",
 #        role = c("ctb"),
 #        comment = c(ORCID = "0000-0001-8049-7069"))
-
+#' @importFrom graphics plot polypath
 plot_sfc <- function(x, y, ..., lty = 1, lwd = 1, col = NA, border = 1, add = FALSE, rule = "evenodd") {
   # FIXME: take care of lend, ljoin, xpd, and lmitre
   stopifnot(missing(y))

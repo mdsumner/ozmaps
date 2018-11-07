@@ -3,4 +3,7 @@
 export(oz)
 export(ozmap)
 export(ozmap_data)
+importFrom(graphics,plot)
+importFrom(graphics,polypath)
 importFrom(oz,oz)
+importFrom(tibble,tibble)
