@@ -41,7 +41,7 @@ NULL
 #' The mesh blocks are not included.
 #'
 #'
-#' @section Data layers :
+#' @section Data layers:
 #' \describe{
 ##' \item{abs_ced}{Commonwealth Electoral Divisions}
 #' \item{abs_gccsa}{Greater Capital City Statistical Areas}

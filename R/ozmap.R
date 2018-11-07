@@ -5,7 +5,9 @@
 #' outline data is purely in longitude-latitude form, see
 #' `ozmap_data()` to obtain the data itself.`
 #'
-#' states, country, abs_* see `abs_ced`
+#' See `abs_ste` for more detailed versions from the Australian Bureau of Statistics.
+#' An example is 'abs_ste' which means 'State and Territory', and
+#' so is a more detailed version of 'states'.
 #' @param x name of data set to use, default is `ozmap_country`
 #' @param add add to existing plot, `FALSE` by default
 #' @param ... arguments passed to ...
@@ -29,11 +31,11 @@ ozmap <- function(x = "states", ..., add = FALSE) {
 #'
 #' @param data name of dat to return, see details
 #' @param quiet set to `TRUE` to suppress messages
-#' @param ... ignored
+#' @param ... passed to data wrapper functions, notably `oz::oz` from `oz_data`
 #'
 #' @return `sf` data frame
 #' @export
-#'
+#' @aliases oz_data
 #' @examples
 #' ozmap_data("country")
 ozmap_data <- function(data = "states", quiet = FALSE, ...) {
@@ -51,8 +53,11 @@ ozmap_data <- function(data = "states", quiet = FALSE, ...) {
                 abs_ste = ozmap_abs_ste_data(...),
                 stop('data not found', data))
 
-
-
+#' @name ozmap_data
+#' @export
+oz_data <- function(data = "states", ...) {
+  oz::oz(states = data == "states", ...)
+}
 if (!quiet && inherits(out, "sf")){
   message("returning `sf` data format")
   message(" to use/plot ensure `sf` package is installed, then `library(sf)`")

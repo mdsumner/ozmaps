@@ -38,6 +38,8 @@ Plot Australia without states.
 
 ``` r
 ozmap(states = FALSE)
+#> Warning in ozmap(states = FALSE): states argument is deprecated, see
+#> 'oz::oz()' function
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
@@ -54,7 +56,7 @@ ozmap(add = TRUE)
 Obtain the data used in `sf` form.
 
 ``` r
-sf_oz <- ozmap_data("ozmap_states")
+sf_oz <- ozmap_data("states")
 #> returning `sf` data format
 #>  to use/plot ensure `sf` package is installed, then `library(sf)`
 
@@ -66,19 +68,19 @@ tibble::as_tibble(sf_oz)
 #> epsg (SRID):    4326
 #> proj4string:    +proj=longlat +datum=WGS84 +no_defs
 #> # A tibble: 11 x 4
-#>    name                         type   adm1_code                  geometry
-#>    <chr>                        <chr>  <chr>        <sf_geometry [degree]>
-#>  1 Macquarie Island             <NA>   AUS+00?   MULTIPOLYGON (((158.8657…
-#>  2 Jervis Bay Territory         Terri… AUS-1932  MULTIPOLYGON (((150.6131…
-#>  3 Northern Territory           Terri… AUS-2650  MULTIPOLYGON (((136.6955…
-#>  4 Western Australia            State  AUS-2651  MULTIPOLYGON (((122.2469…
-#>  5 Australian Capital Territory Terri… AUS-2653  MULTIPOLYGON (((149.3818…
-#>  6 New South Wales              State  AUS-2654  MULTIPOLYGON (((150.7038…
-#>  7 South Australia              State  AUS-2655  MULTIPOLYGON (((137.6229…
-#>  8 Victoria                     State  AUS-2656  MULTIPOLYGON (((146.4898…
-#>  9 Queensland                   State  AUS-2657  MULTIPOLYGON (((153.4873…
-#> 10 Norfolk Island               Terri… AUS-2659  MULTIPOLYGON (((159.0689…
-#> 11 Tasmania                     State  AUS-2660  MULTIPOLYGON (((147.364 …
+#>    name          type   adm1_code                                 geometry
+#>    <chr>         <chr>  <chr>                          <MULTIPOLYGON [Â°]>
+#>  1 Macquarie Is~ <NA>   AUS+00?   (((158.8657 -54.74993, 158.8382 -54.750~
+#>  2 Jervis Bay T~ Terri~ AUS-1932  (((150.6131 -35.18727, 150.6364 -35.144~
+#>  3 Northern Ter~ Terri~ AUS-2650  (((136.6955 -15.73992, 136.6636 -15.778~
+#>  4 Western Aust~ State  AUS-2651  (((122.2469 -34.16245, 122.2379 -34.163~
+#>  5 Australian C~ Terri~ AUS-2653  (((149.3818 -35.34875, 149.367 -35.3573~
+#>  6 New South Wa~ State  AUS-2654  (((150.7038 -35.12044, 150.6735 -35.124~
+#>  7 South Austra~ State  AUS-2655  (((137.6229 -35.58213, 137.6343 -35.590~
+#>  8 Victoria      State  AUS-2656  (((146.4898 -38.7457, 146.5347 -38.7559~
+#>  9 Queensland    State  AUS-2657  (((153.4873 -27.41522, 153.5011 -27.417~
+#> 10 Norfolk Isla~ Terri~ AUS-2659  (((159.0689 -31.52093, 159.0833 -31.534~
+#> 11 Tasmania      State  AUS-2660  (((147.364 -43.37933, 147.3655 -43.3878~
 ```
 
 Plot with a custom palette.

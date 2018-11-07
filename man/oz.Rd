@@ -7,5 +7,9 @@
 The classic `oz` package `oz` function.
 }
 \details{
-This function calls `oz::oz()` to draw a basic outline.
+This function calls `oz::oz()` to draw a basic outline. See
+`oz_data` to obtain the data in native form.
+
+See \code{oz::\link[oz]{oz}} for details.
 }
+\keyword{internal}

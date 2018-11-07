@@ -2,6 +2,7 @@
 % Please edit documentation in R/ozmap.R
 \name{ozmap_data}
 \alias{ozmap_data}
+\alias{oz_data}
 \title{Australia map data}
 \usage{
 ozmap_data(data = "states", quiet = FALSE, ...)
@@ -11,7 +12,7 @@ ozmap_data(data = "states", quiet = FALSE, ...)
 
 \item{quiet}{set to `TRUE` to suppress messages}
 
-\item{...}{ignored}
+\item{...}{passed to data wrapper functions, notably `oz::oz` from `oz_data`}
 }
 \value{
 `sf` data frame

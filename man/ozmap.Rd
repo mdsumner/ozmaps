@@ -23,7 +23,9 @@ Draw a map of Australia, with or without states.
 outline data is purely in longitude-latitude form, see
 `ozmap_data()` to obtain the data itself.`
 
-states, country, abs_* see `abs_ced`
+See `abs_ste` for more detailed versions from the Australian Bureau of Statistics.
+An example is 'abs_ste' which means 'State and Territory', and
+so is a more detailed version of 'states'.
 }
 \examples{
 ozmap()

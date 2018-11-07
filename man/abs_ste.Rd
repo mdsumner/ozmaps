@@ -39,7 +39,7 @@ Statistical Areas Level 1 is not included as it is very large (56Mb after simpli
 
 The mesh blocks are not included.
 }
-\section{Data layers }{
+\section{Data layers}{
 
 \describe{
 \item{abs_ced}{Commonwealth Electoral Divisions}
