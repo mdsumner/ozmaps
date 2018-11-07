@@ -8,12 +8,12 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
-Depends: R (>= 3.3.0)
+Depends: R (>= 3.3.0), tibble
+Imports: oz
 Suggests: 
     ochRe,
-    oz,
     rmapshaper (> 0.3.1),
     testthat,
-    tibble,
     covr
 RoxygenNote: 6.1.0
+Remotes: ropenscilabs/ochRe
