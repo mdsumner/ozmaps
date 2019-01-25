@@ -153,6 +153,9 @@ as it is the union of the State and Territory layer.</p>
     <div class='dont-index'><p>The script to create the data set set: data-raw/abs-inbuilt.R</p></div>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_ste"</span>)</div><div class='img'><img src='abs_ste-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_gccsa"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/sample'>sample</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/grDevices/topics/palettes'>rainbow</a></span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/nrow'>nrow</a></span>(<span class='no'>abs_gccsa</span>), <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>.4</span>)))</div><div class='input'><span class='no'>opal</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>ochRe</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/ochRe/topics/ochre_pal'>ochre_pal</a></span>()</div><div class='img'><img src='abs_ste-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_sa4"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>opal</span>(<span class='fl'>30</span>))</div><div class='img'><img src='abs_ste-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -165,7 +168,9 @@ as it is the union of the State and Territory layer.</p>
       <li><a href="#data-layers">Data layers</a></li>
 
       <li><a href="#see-also">See also</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
