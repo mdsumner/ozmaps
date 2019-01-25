@@ -1,8 +1,36 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
-language: R
+# Header
+language: r
 sudo: false
+dist: trusty
 cache: packages
+latex: false
+
+
+addons:
+    apt:
+        packages:
+            - libprotobuf-dev
+
+matrix:
+    include:
+        - os: linux
+          r: release
+          dist: trusty # 14.04
+          env:
+           - BUILD_NAME=trusty_release
+           - DETAILS="release build"
+        - os: osx
+          r: release
+          env:
+           - BUILD_NAME=osx_release
+           - DETAILS="release build"
+
+notifications:
+  email:
+    on_success: change
+    on_failure: change
 
 after_success:
   - Rscript -e 'covr::codecov()'
