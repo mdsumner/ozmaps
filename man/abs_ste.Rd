@@ -55,6 +55,13 @@ The mesh blocks are not included.
 }
 }
 
+\examples{
+ozmap("abs_ste")
+
+ozmap("abs_gccsa", col = sample(rainbow(nrow(abs_gccsa), alpha = .4)))
+opal <- ochRe::ochre_pal()
+ozmap("abs_sa4", col = opal(30))
+}
 \seealso{
 The script to create the data set set: data-raw/abs-inbuilt.R
 }

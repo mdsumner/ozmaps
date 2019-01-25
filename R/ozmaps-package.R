@@ -67,7 +67,7 @@ NULL
 #' }
 #'
 #' @examples
-#' ozmap("abs_ste)
+#' ozmap("abs_ste")
 #'
 #' ozmap("abs_gccsa", col = sample(rainbow(nrow(abs_gccsa), alpha = .4)))
 #' opal <- ochRe::ochre_pal()
