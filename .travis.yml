@@ -8,13 +8,6 @@ cache: packages
 latex: false
 
 
-addons:
-    apt:
-        packages:
-            - libprotobuf-dev
-            - protobuf-compiler
-            - libudunits2-dev
-            - libv8-3.14-dev
 
 matrix:
     include:

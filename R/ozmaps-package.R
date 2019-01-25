@@ -32,7 +32,7 @@ NULL
 #'
 #' Each layer was read from the source file with 'sf' package and attributes were removed, leaving a single 'NAME'
 #' column from the year-specific column names. The geometry has been
-#' simplified using `rmapshaper::ms_simplify` with default arguments (0.05 detail).
+#' simplified using 'rmapshaper::ms_simplify' with default arguments (0.05 detail).
 #'
 #' Several layers are not included from the total available.
 #'

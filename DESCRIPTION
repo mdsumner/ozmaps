@@ -12,7 +12,6 @@ Depends: R (>= 3.3.0), tibble
 Imports: oz
 Suggests: 
     ochRe,
-    rmapshaper (> 0.3.1),
     testthat,
     covr
 RoxygenNote: 6.1.1
