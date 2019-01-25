@@ -12,6 +12,7 @@ addons:
     apt:
         packages:
             - libprotobuf-dev
+            - protobuf-compiler
 
 matrix:
     include:
