@@ -32,11 +32,10 @@ ozmap <- function(x = "states", ..., add = FALSE) {
 #'
 #' @param data name of dat to return, see details
 #' @param quiet set to `TRUE` to suppress messages
-#' @param ... passed to data wrapper functions, notably `oz::oz` from `oz_data`
+#' @param ... passed to data wrapper functions, notably `oz::oz()`
 #'
 #' @return `sf` data frame
 #' @export
-#' @aliases oz_data
 #' @examples
 #' ozmap_data("country")
 ozmap_data <- function(data = "states", quiet = FALSE, ...) {
@@ -55,16 +54,11 @@ ozmap_data <- function(data = "states", quiet = FALSE, ...) {
                 abs_ste = ozmap_abs_ste_data(...),
                 stop('data not found', data))
 
-#' @name ozmap_data
-#' @export
-oz_data <- function(data = "states", ...) {
-  oz::oz(states = data == "states", ...)
-}
-if (!quiet && inherits(out, "sf")){
-  message("returning `sf` data format")
-  message(" to use/plot ensure `sf` package is installed, then `library(sf)`")
-}
-out
+ if (!quiet && inherits(out, "sf")){
+   message("returning `sf` data format")
+   message(" to use/plot ensure `sf` package is installed, then `library(sf)`")
+ }
+ out
 }
 ozmap_states_data <- function(...) {
   ozmap_states

@@ -1,9 +1,17 @@
 Package: ozmaps
 Version: 0.2.0
 Title: Australia Maps
-Description: Draw maps of Australian coastline and administrative regions. 
-Authors@R: c(person("Michael", "Sumner", email = "mdsumner@gmail.com", role = c("aut", "cre")), 
-             person("Dianne", "Cook", role = "ctb"))
+Description: Maps of Australian coastline and administrative regions. Data 
+ can be drawn or accessed directly as simple features objects. Includes
+ simple functions for country or state maps of Australia and in-built data
+ sets of administrative regions from the Australian Bureau of Statistics. 
+Authors@R: c(person("Michael", "Sumner", 
+              email = "mdsumner@gmail.com", 
+              role = c("aut", "cre")), 
+             person("Dianne", "Cook", role = "ctb"), 
+             person(given = "Edzer", family = "Pebesma",
+             role = c("ctb"),
+             comment = c("wrote the plot code for sf internalized here")))
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

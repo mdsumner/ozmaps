@@ -2,14 +2,27 @@
 % Please edit documentation in R/oz.R
 \name{oz}
 \alias{oz}
+\alias{oz_data}
 \title{The oz function}
+\usage{
+oz_data(data = "states", ...)
+}
+\arguments{
+\item{data}{character string, "states" provides state level else country level}
+
+\item{...}{passed to [oz::oz()]}
+}
+\value{
+oz class list of coordinates
+}
 \description{
-The classic `oz` package `oz` function.
+The classic `oz` package [oz::oz()] function.
 }
 \details{
-This function calls `oz::oz()` to draw a basic outline. See
-`oz_data` to obtain the data in native form.
+This function calls [oz::oz()] to draw a basic outline. Use
+[oz_data()] to obtain the data in native form.
 
-See \code{oz::\link[oz]{oz}} for details.
+See \code{oz::\link[oz]{oz}} for details.  Here `data` is treated as
+an identifier, but only "states" or any other value is accepted. If not
+"states", then country level is returned.
 }
-\keyword{internal}

@@ -6,7 +6,10 @@
 \alias{ozmaps-package}
 \title{ozmaps: Australia Maps}
 \description{
-Draw maps of Australian coastline and administrative regions.
+Maps of Australian coastline and administrative regions. Data 
+ can be drawn or accessed directly as simple features objects. Includes
+ simple functions for country or state maps of Australia and in-built data
+ sets of administrative regions from the Australian Bureau of Statistics.
 }
 \seealso{
 Useful links:
@@ -22,6 +25,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item Dianne Cook [contributor]
+  \item Edzer Pebesma (wrote the plot code for sf internalized here) [contributor]
 }
 
 }
