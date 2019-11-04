@@ -100,9 +100,9 @@ ozmap_abs_lga_data <- function(...) {
 # ozmap_abs_sa4_data <- function(...) {
 #  abs_sa4
 # }
-ozmap_abs_sed_data <- function(...){
-  abs_sed
-}
+# ozmap_abs_sed_data <- function(...){
+#   abs_sed
+# }
 ozmap_abs_ste_data <- function(...){
  abs_ste
 }

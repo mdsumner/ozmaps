@@ -2,7 +2,7 @@
 "_PACKAGE"
 
 globalVariables(c("ozmap_country", "ozmap_states",
-                  "abs_ced", "abs_lga",  "abs_sed", "abs_ste"))
+                  "abs_ced", "abs_lga",   "abs_ste"))
 
 
 #' Australian map data
@@ -52,7 +52,7 @@ NULL
 #' \item{abs_ste}{State and Territory}
 
 #' }
-#' @seealso The script to create the data set set: data-raw/abs-inbuilt.R
+#' @seealso The script to create the data set: data-raw/abs-inbuilt.R
 #'
 #' @format Simple features data frame with
 #' \describe{

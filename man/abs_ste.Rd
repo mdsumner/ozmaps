@@ -51,6 +51,6 @@ opal <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "na
 ozmap("abs_ced", col = opal(30))
 }
 \seealso{
-The script to create the data set set: data-raw/abs-inbuilt.R
+The script to create the data set: data-raw/abs-inbuilt.R
 }
 \keyword{datasets}
