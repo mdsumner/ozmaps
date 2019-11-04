@@ -8,8 +8,8 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
-Depends: R (>= 3.3.0), tibble
-Imports: oz
+Depends: R (>= 3.3.0)
+Imports: oz, tibble
 Suggests: 
     ochRe,
     testthat,

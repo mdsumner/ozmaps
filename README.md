@@ -38,7 +38,6 @@ Plot Australia with states.
 
 ``` r
 library(ozmaps)
-#> Loading required package: tibble
 ozmap()
 ```
 
