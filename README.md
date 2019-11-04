@@ -87,7 +87,6 @@ tibble::as_tibble(sf_oz)
 Plot with a custom palette.
 
 ``` r
-##remotes::install_github("ropenscilabs/ochRe")
 library(sf)
 nmjr <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))(nrow(sf_oz))
 plot(st_geometry(sf_oz), col = nmjr)
