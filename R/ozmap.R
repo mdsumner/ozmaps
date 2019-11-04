@@ -76,30 +76,30 @@ ozmap_country_data <- function(...) {
 ozmap_abs_ced_data <- function(...) {
   abs_ced
 }
-ozmap_abs_gccsa_data <- function(...){
-  ## FIXME see commented out above, get from ozmaps.data if installed
-  ## plus message to install that
-  abs_gccsa
-}
-ozmap_abs_ireg_data <- function(...) {
- abs_ireg
-}
+# ozmap_abs_gccsa_data <- function(...){
+#   ## FIXME see commented out above, get from ozmaps.data if installed
+#   ## plus message to install that
+#   abs_gccsa
+# }
+# ozmap_abs_ireg_data <- function(...) {
+#  abs_ireg
+# }
 ozmap_abs_lga_data <- function(...) {
  abs_lga
 }
-ozmap_abs_ra_data <- function(...) {
- abs_ra
-}
-ozmap_abs_sa2_data <- function(...) {
-  abs_sa2
-}
-
-ozmap_abs_sa3_data <- function(...) {
- abs_sa3
-}
-ozmap_abs_sa4_data <- function(...) {
- abs_sa4
-}
+# ozmap_abs_ra_data <- function(...) {
+#  abs_ra
+# }
+# ozmap_abs_sa2_data <- function(...) {
+#   abs_sa2
+# }
+#
+# ozmap_abs_sa3_data <- function(...) {
+#  abs_sa3
+# }
+# ozmap_abs_sa4_data <- function(...) {
+#  abs_sa4
+# }
 ozmap_abs_sed_data <- function(...){
   abs_sed
 }

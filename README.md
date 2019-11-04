@@ -89,7 +89,7 @@ Plot with a custom palette.
 ``` r
 ##remotes::install_github("ropenscilabs/ochRe")
 library(sf)
-nmjr <- ochRe::ochre_pal()(dim(sf_oz)[1])
+nmjr <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))(nrow(sf_oz))
 plot(st_geometry(sf_oz), col = nmjr)
 ```
 
@@ -104,11 +104,12 @@ ggplot(sf_oz, aes(fill = name)) + geom_sf() + coord_sf(crs = "+proj=lcc +lon_0=1
 
 <img src="man/figures/README-unnamed-chunk-7-2.png" width="100%" />
 
-Plot the ABS layers (from 2016).
+Plot the ABS layers (from
+2016).
 
 ``` r
-
-ozmap("abs_ced", col = ochRe::ochre_pal()(nrow(abs_ced)))
+opal <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))
+ozmap("abs_ced", col = opal(nrow(abs_ced)))
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
@@ -116,7 +117,7 @@ ozmap("abs_ced", col = ochRe::ochre_pal()(nrow(abs_ced)))
 ``` r
 
 
-ozmap("abs_ste", col = ochRe::ochre_pal()(nrow(abs_ste)))
+ozmap("abs_ste", col = opal(nrow(abs_ste)))
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-2.png" width="100%" />

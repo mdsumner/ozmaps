@@ -47,7 +47,7 @@ State Electoral Divisions. See 'ozmaps.data' for these.
 ozmap("abs_ste")
 
 ozmap("abs_lga", col = sample(rainbow(nrow(abs_lga), alpha = .4)))
-opal <- ochRe::ochre_pal()
+opal <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))
 ozmap("abs_ced", col = opal(30))
 }
 \seealso{

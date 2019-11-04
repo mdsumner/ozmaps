@@ -17,7 +17,6 @@ globalVariables(c("ozmap_country", "ozmap_states",
 #' @aliases ozmap_country
 #' @docType data
 #' @importFrom tibble tibble as_tibble
-#' @export tibble as_tibble
 NULL
 
 
@@ -65,7 +64,7 @@ NULL
 #' ozmap("abs_ste")
 #'
 #' ozmap("abs_lga", col = sample(rainbow(nrow(abs_lga), alpha = .4)))
-#' opal <- ochRe::ochre_pal()
+#' opal <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))
 #' ozmap("abs_ced", col = opal(30))
 #' @aliases abs_ced abs_lga
 "abs_ste"

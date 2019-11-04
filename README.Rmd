@@ -82,7 +82,7 @@ Plot with a custom palette.
 ```{r}
 ##remotes::install_github("ropenscilabs/ochRe")
 library(sf)
-nmjr <- ochRe::ochre_pal()(dim(sf_oz)[1])
+nmjr <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))(nrow(sf_oz))
 plot(st_geometry(sf_oz), col = nmjr)
 
 ## soon...plot directly with ggplot2
@@ -94,11 +94,11 @@ ggplot(sf_oz, aes(fill = name)) + geom_sf() + coord_sf(crs = "+proj=lcc +lon_0=1
 Plot the ABS layers (from 2016). 
 
 ```{r}
+opal <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))
+ozmap("abs_ced", col = opal(nrow(abs_ced)))
 
-ozmap("abs_ced", col = ochRe::ochre_pal()(nrow(abs_ced)))
 
-
-ozmap("abs_ste", col = ochRe::ochre_pal()(nrow(abs_ste)))
+ozmap("abs_ste", col = opal(nrow(abs_ste)))
 ```
 
  Please note that the 'ozmaps' project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

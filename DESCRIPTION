@@ -11,10 +11,9 @@ ByteCompile: true
 Depends: R (>= 3.3.0)
 Imports: oz, tibble
 Suggests: 
-    ochRe,
+    paletteer,
     testthat,
     covr
 RoxygenNote: 6.1.1
-Remotes: ropenscilabs/ochRe
 URL: https://github.com/mdsumner/ozmaps
 BugReports: https://github.com/mdsumner/ozmaps/issues
