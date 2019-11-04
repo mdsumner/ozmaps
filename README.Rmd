@@ -59,7 +59,7 @@ ozmap()
 Plot Australia without states. 
 
 ```{r}
-ozmap(states = FALSE)
+ozmap(x = "country")
 ```
 
 Add to an existing plot. 

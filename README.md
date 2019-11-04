@@ -46,9 +46,7 @@ ozmap()
 Plot Australia without states.
 
 ``` r
-ozmap(states = FALSE)
-#> Warning in ozmap(states = FALSE): states argument is deprecated, see
-#> 'oz::oz()' function
+ozmap(x = "country")
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
