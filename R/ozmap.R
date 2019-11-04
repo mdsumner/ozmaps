@@ -34,20 +34,22 @@ ozmap <- function(x = "states", ..., add = FALSE) {
 #'
 #' Available layers are
 #'
-#' * states
-#' * country
-#' * [abs_ced]
-#' * [abs_lga]
-#' * [abs_ste]
+#' * [states](ozmap_states) state and territories (low resolution)
+#' * [country](ozmap_country) entire country (low resolution)
+#' * [abs_ced] country level electoral divisions
+#' * [abs_lga] local government areas
+#' * [abs_ste] state and territories
 #'
-#' @param data name of dat to return, see details
+#' @param data name of layer to return, see details
 #' @param quiet set to `TRUE` to suppress messages
-#' @param ... passed to data wrapper functions, notably `oz::oz()`
+#' @param ... unused
 #'
 #' @return `sf` data frame with 'NAME' and 'geometry' columns
 #' @export
 #' @examples
 #' ozmap_data("country")
+#'
+#' ozmap_data("abs_lga")
 ozmap_data <- function(data = "states", quiet = FALSE, ...) {
   out <- switch(data,
                 states = ozmap_states_data(...),
