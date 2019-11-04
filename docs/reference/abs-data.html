@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Australian map data — ozmap_states • ozmaps</title>
+<title>Australian Bureau of Statistics (ABS) map data — abs-data • ozmaps</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,9 @@
 
 
 
-<meta property="og:title" content="Australian map data — ozmap_states" />
-<meta property="og:description" content="Australian coastline and boundaries data, including states and territories" />
+<meta property="og:title" content="Australian Bureau of Statistics (ABS) map data — abs-data" />
+<meta property="og:description" content="These data sets are simplifications of the formal statistical areas
+and regions published by the ABS in 2016." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -105,28 +106,65 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Australian map data</h1>
+    <h1>Australian Bureau of Statistics (ABS) map data</h1>
     <small class="dont-index">Source: <a href='https://github.com/mdsumner/ozmaps/blob/master/R/ozmaps-package.R'><code>R/ozmaps-package.R</code></a></small>
-    <div class="hidden name"><code>ozmap_states.Rd</code></div>
+    <div class="hidden name"><code>abs-data.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Australian coastline and boundaries data, including states and territories</p>
+    <p>These data sets are simplifications of the formal statistical areas
+and regions published by the ABS in 2016.</p>
     </div>
 
 
 
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>Simple features data frame with</p><dl class='dl-horizontal'>
+<dt>NAME</dt><dd><p>Area name</p></dd>
+<dt>geometry</dt><dd><p>Geometry column in 'sfc' format</p></dd>
+
+</dl>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>In-built data set of Australian coastline and provinces (states and
-territories) simplified from the Australian Bureau of Statistics layer
-<a href='abs-data.html'>abs_ste</a>.</p>
+    <p>Each layer was read from the source file with 'sf' package and attributes were removed, leaving a single 'NAME'
+column from the year-specific column names. The geometry has been
+simplified using 'rmapshaper::ms_simplify' with default arguments (0.05 detail).</p>
+<p>Several layers are not included from the total available.</p>
+<p>The entire nation layer 'AUST' is not included
+as it is the union of the State and Territory layer.</p>
+<p>Statistical Areas Level 1 is not included as it is very large (56Mb after simplification).</p>
+<p>The mesh blocks are not included, nor Greater Capital City Statistical Areas,
+Indigenous Regions, Remoteness Structure, Statistical Areas (L2, L3, L4),
+State Electoral Divisions. See 'ozmaps.data' for these.</p>
+    <h2 class="hasAnchor" id="data-layers"><a class="anchor" href="#data-layers"></a>Data layers</h2>
 
+    
+
+<dl class='dl-horizontal'>
+<dt>abs_ced</dt><dd><p>Commonwealth Electoral Divisions</p></dd>
+<dt>abs_lga</dt><dd><p>Local Goverment Areas</p></dd>
+<dt>abs_ste</dt><dd><p>State and Territory</p></dd>
+
+</dl>
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>The script to create the data set: data-raw/abs-inbuilt.R</p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_ste"</span>)</div><div class='img'><img src='abs-data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_lga"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>abs_lga</span>), <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>.4</span>)))</div><div class='img'><img src='abs-data-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>opal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/colorRamp.html'>colorRampPalette</a></span>(<span class='kw pkg'>paletteer</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/paletteer/man/paletteer_d.html'>paletteer_d</a></span>(<span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ochRe"</span>, <span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"namatjira_qual"</span>))
+<span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_ced"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>opal</span>(<span class='fl'>30</span>))</div><div class='img'><img src='abs-data-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#format">Format</a></li>
       <li><a href="#details">Details</a></li>
+      <li><a href="#data-layers">Data layers</a></li>
+      <li><a href="#see-also">See also</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
 
   </div>

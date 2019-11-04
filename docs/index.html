@@ -11,7 +11,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Australia Maps">
-<meta property="og:description" content="Draw maps of Australian coastline and administrative regions. ">
+<meta property="og:description" content="Maps of Australian coastline and administrative regions. Data 
+ can be drawn or accessed directly as simple features objects. Includes
+ simple functions for country or state maps of Australia and in-built data
+ sets of administrative regions from the Australian Bureau of Statistics. ">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -31,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ozmaps</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -100,20 +103,18 @@
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;  to use/plot ensure `sf` package is installed, then `library(sf)`</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5">tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span>(sf_oz)</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; # A tibble: 11 x 4</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;    name          type    adm1_code                                 geometry</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;    &lt;chr&gt;         &lt;chr&gt;   &lt;chr&gt;                           &lt;MULTIPOLYGON [°]&gt;</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt;  1 Macquarie Is… &lt;NA&gt;    AUS+00?   (((158.8657 -54.74993, 158.8382 -54.750…</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt;  2 Jervis Bay T… Territ… AUS-1932  (((150.6131 -35.18727, 150.6364 -35.144…</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt;  3 Northern Ter… Territ… AUS-2650  (((136.6955 -15.73992, 136.6636 -15.778…</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt;  4 Western Aust… State   AUS-2651  (((122.2469 -34.16245, 122.2379 -34.163…</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt;  5 Australian C… Territ… AUS-2653  (((149.3818 -35.34875, 149.367 -35.3573…</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt;  6 New South Wa… State   AUS-2654  (((150.7038 -35.12044, 150.6735 -35.124…</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt;  7 South Austra… State   AUS-2655  (((137.6229 -35.58213, 137.6343 -35.590…</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt;  8 Victoria      State   AUS-2656  (((146.4898 -38.7457, 146.5347 -38.7559…</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt;  9 Queensland    State   AUS-2657  (((153.4873 -27.41522, 153.5011 -27.417…</span></a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt; 10 Norfolk Isla… Territ… AUS-2659  (((159.0689 -31.52093, 159.0833 -31.534…</span></a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt; 11 Tasmania      State   AUS-2660  (((147.364 -43.37933, 147.3655 -43.3878…</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; # A tibble: 9 x 2</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;   NAME                                                             geometry</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;   &lt;chr&gt;                                                  &lt;MULTIPOLYGON [°]&gt;</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 1 New South Wales     (((150.7016 -35.12286, 150.6611 -35.11782, 150.6373 …</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; 2 Victoria            (((146.6196 -38.70196, 146.6721 -38.70259, 146.6744 …</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; 3 Queensland          (((148.8473 -20.3457, 148.8722 -20.37575, 148.8515 -…</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; 4 South Australia     (((137.3481 -34.48242, 137.3749 -34.46885, 137.3805 …</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; 5 Western Australia   (((126.3868 -14.01168, 126.3625 -13.98264, 126.3765 …</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 6 Tasmania            (((147.8397 -40.29844, 147.8902 -40.30258, 147.8812 …</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; 7 Northern Territory  (((136.3669 -13.84237, 136.3339 -13.83922, 136.3532 …</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; 8 Australian Capital… (((149.2317 -35.222, 149.2346 -35.24047, 149.2716 -3…</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; 9 Other Territories   (((167.9333 -29.05421, 167.9188 -29.0344, 167.9313 -…</span></a></code></pre></div>
 <p>Plot with a custom palette.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(sf)</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">nmjr &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span>(paletteer<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span>(<span class="dt">package =</span> <span class="st">"ochRe"</span>, <span class="dt">palette =</span> <span class="st">"namatjira_qual"</span>))(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(sf_oz))</a>
@@ -122,7 +123,7 @@
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"></a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">## soon...plot directly with ggplot2</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(sf_oz, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> name)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span>(<span class="dt">crs =</span> <span class="st">"+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84"</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> nmjr)</a></code></pre></div>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(sf_oz, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> NAME)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span>(<span class="dt">crs =</span> <span class="st">"+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84"</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> nmjr)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-7-2.png" width="100%"></p>
 <p>Plot the ABS layers (from 2016).</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">opal &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span>(paletteer<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span>(<span class="dt">package =</span> <span class="st">"ochRe"</span>, <span class="dt">palette =</span> <span class="st">"namatjira_qual"</span>))</a>
@@ -132,6 +133,7 @@
 <a class="sourceLine" id="cb10-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="st">"abs_ste"</span>, <span class="dt">col =</span> <span class="kw">opal</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(abs_ste)))</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-8-2.png" width="100%"></p>
+<hr>
 <p>Please note that the ‘ozmaps’ project is released with a <a href="CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>

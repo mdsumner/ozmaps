@@ -12,7 +12,7 @@
 #' @param add add to existing plot, `FALSE` by default
 #' @param ... arguments passed to ...
 #' @seealso ozmap_data
-#' @return the data set used, sometimes sf sometimes oz format
+#' @return the data set used, in 'sf' format
 #' @export
 #'
 #' @examples
@@ -30,11 +30,21 @@ ozmap <- function(x = "states", ..., add = FALSE) {
 
 #' Australia map data
 #'
+#' Return simple features data frames of various Australian map layers.
+#'
+#' Available layers are
+#'
+#' * states
+#' * country
+#' * [abs_ced]
+#' * [abs_lga]
+#' * [abs_ste]
+#'
 #' @param data name of dat to return, see details
 #' @param quiet set to `TRUE` to suppress messages
 #' @param ... passed to data wrapper functions, notably `oz::oz()`
 #'
-#' @return `sf` data frame
+#' @return `sf` data frame with 'NAME' and 'geometry' columns
 #' @export
 #' @examples
 #' ozmap_data("country")
@@ -54,10 +64,6 @@ ozmap_data <- function(data = "states", quiet = FALSE, ...) {
                 abs_ste = ozmap_abs_ste_data(...),
                 stop('data not found', data))
 
- if (!quiet && inherits(out, "sf")){
-   message("returning `sf` data format")
-   message(" to use/plot ensure `sf` package is installed, then `library(sf)`")
- }
  out
 }
 ozmap_states_data <- function(...) {

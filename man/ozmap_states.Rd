@@ -11,5 +11,5 @@ Australian coastline and boundaries data, including states and territories
 \details{
 In-built data set of Australian coastline and provinces (states and
 territories) simplified from the Australian Bureau of Statistics layer
-[abs_ste].
+\link{abs_ste}.
 }

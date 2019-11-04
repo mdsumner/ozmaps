@@ -36,7 +36,7 @@
 
 
 <meta property="og:title" content="Australia map data — ozmap_data" />
-<meta property="og:description" content="Australia map data" />
+<meta property="og:description" content="Return simple features data frames of various Australian map layers." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ozmaps</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -111,7 +111,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Australia map data</p>
+    <p>Return simple features data frames of various Australian map layers.</p>
     </div>
 
     <pre class="usage"><span class='fu'>ozmap_data</span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='st'>"states"</span>, <span class='kw'>quiet</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
@@ -125,29 +125,40 @@
     </tr>
     <tr>
       <th>quiet</th>
-      <td><p>set to `TRUE` to suppress messages</p></td>
+      <td><p>set to <code>TRUE</code> to suppress messages</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>passed to data wrapper functions, notably `oz::oz` from `oz_data`</p></td>
+      <td><p>passed to data wrapper functions, notably <code><a href='https://rdrr.io/pkg/oz/man/oz.html'>oz::oz()</a></code></p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>`sf` data frame</p>
+    <p><code>sf</code> data frame with 'NAME' and 'geometry' columns</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Available layers are</p><ul>
+<li><p>states</p></li>
+<li><p>country</p></li>
+<li><p><a href='abs-data.html'>abs_ced</a></p></li>
+<li><p><a href='abs-data.html'>abs_lga</a></p></li>
+<li><p><a href='abs-data.html'>abs_ste</a></p></li>
+</ul>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ozmap_data</span>(<span class='st'>"country"</span>)</div><div class='output co'>#&gt; <span class='message'>returning `sf` data format</span></div><div class='output co'>#&gt; <span class='message'> to use/plot ensure `sf` package is installed, then `library(sf)`</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 4</span><span>
-#&gt;   name      type    adm0_a3 geometry
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>  
-#&gt; </span><span style='color: #555555;'>1</span><span> Australia Country AUS     </span><span style='color: #555555;'>&lt;XY&gt;</span><span>    </div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ozmap_data</span>(<span class='st'>"country"</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 1 x 2</span><span>
+#&gt;   NAME      geometry
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;list&gt;</span><span>  
+#&gt; </span><span style='color: #555555;'>1</span><span> Australia </span><span style='color: #555555;'>&lt;XY&gt;</span><span>    </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

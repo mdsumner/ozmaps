@@ -9,15 +9,25 @@ ozmap_data(data = "states", quiet = FALSE, ...)
 \arguments{
 \item{data}{name of dat to return, see details}
 
-\item{quiet}{set to `TRUE` to suppress messages}
+\item{quiet}{set to \code{TRUE} to suppress messages}
 
-\item{...}{passed to data wrapper functions, notably `oz::oz()`}
+\item{...}{passed to data wrapper functions, notably \code{oz::oz()}}
 }
 \value{
-`sf` data frame
+\code{sf} data frame with 'NAME' and 'geometry' columns
 }
 \description{
-Australia map data
+Return simple features data frames of various Australian map layers.
+}
+\details{
+Available layers are
+\itemize{
+\item states
+\item country
+\item \link{abs_ced}
+\item \link{abs_lga}
+\item \link{abs_ste}
+}
 }
 \examples{
 ozmap_data("country")

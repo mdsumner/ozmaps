@@ -10,19 +10,20 @@ oz_data(data = "states", ...)
 \arguments{
 \item{data}{character string, "states" provides state level else country level}
 
-\item{...}{passed to [oz::oz()]}
+\item{...}{passed to \code{\link[oz:ozRegion]{oz::ozRegion()}}}
 }
 \value{
 oz class list of coordinates
 }
 \description{
-The classic `oz` package [oz::oz()] function.
+The classic \code{oz} package \code{\link[oz:oz]{oz::oz()}} function.
 }
 \details{
-This function calls [oz::oz()] to draw a basic outline. Use
-[oz_data()] to obtain the data in native form.
+This function calls \code{\link[oz:oz]{oz::oz()}} to draw a basic outline. Use
+\code{\link[=oz_data]{oz_data()}} to obtain the data in native form.
 
-See \code{oz::\link[oz]{oz}} for details.  Here `data` is treated as
+See \code{\link[oz:ozRegion]{oz::ozRegion()}} for more details.  Here \code{data} is treated as
 an identifier, but only "states" or any other value is accepted. If not
-"states", then country level is returned.
+"states", then country level is returned. Further arguments to \code{\link[oz:ozRegion]{oz::ozRegion()}}
+can be passed in via dots.
 }

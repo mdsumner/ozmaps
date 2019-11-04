@@ -7,23 +7,23 @@
 ozmap(x = "states", ..., add = FALSE)
 }
 \arguments{
-\item{x}{name of data set to use, default is `ozmap_country`}
+\item{x}{name of data set to use, default is \code{ozmap_country}}
 
 \item{...}{arguments passed to ...}
 
-\item{add}{add to existing plot, `FALSE` by default}
+\item{add}{add to existing plot, \code{FALSE} by default}
 }
 \value{
-the data set used, sometimes sf sometimes oz format
+the data set used, in 'sf' format
 }
 \description{
 Draw a map of Australia, with or without states.
 }
 \details{
 outline data is purely in longitude-latitude form, see
-`ozmap_data()` to obtain the data itself.`
+\code{ozmap_data()} to obtain the data itself.`
 
-See `abs_ste` for more detailed versions from the Australian Bureau of Statistics.
+See \code{abs_ste} for more detailed versions from the Australian Bureau of Statistics.
 An example is 'abs_ste' which means 'State and Territory', and
 so is a more detailed version of 'states'.
 }
