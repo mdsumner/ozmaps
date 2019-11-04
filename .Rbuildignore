@@ -9,3 +9,4 @@
 ^appveyor\.yml$
 ^codecov\.yml$
 ^docs$
+^cran-comments\.md$
