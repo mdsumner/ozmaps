@@ -90,6 +90,7 @@ tibble::as_tibble(sf_oz)
 Plot with a custom palette.
 
 ``` r
+##remotes::install_github("ropenscilabs/ochRe")
 library(sf)
 nmjr <- ochRe::ochre_pal()(dim(sf_oz)[1])
 plot(st_geometry(sf_oz), col = nmjr)
@@ -110,7 +111,7 @@ Plot the ABS layers (from 2016).
 
 ``` r
 
-ozmap("abs_sa4", col = ochRe::ochre_pal()(nrow(abs_sa4)))
+ozmap("abs_ced", col = ochRe::ochre_pal()(nrow(abs_ced)))
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
@@ -118,7 +119,7 @@ ozmap("abs_sa4", col = ochRe::ochre_pal()(nrow(abs_sa4)))
 ``` r
 
 
-ozmap("abs_gccsa", col = ochRe::ochre_pal()(nrow(abs_gccsa)))
+ozmap("abs_ste", col = ochRe::ochre_pal()(nrow(abs_ste)))
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-2.png" width="100%" />
