@@ -4,14 +4,7 @@
 \name{abs_ste}
 \alias{abs_ste}
 \alias{abs_ced}
-\alias{abs_gccsa}
-\alias{abs_ireg}
 \alias{abs_lga}
-\alias{abs_ra}
-\alias{abs_sa2}
-\alias{abs_sa3}
-\alias{abs_sa4}
-\alias{abs_sed}
 \title{Australian Bureau of Statistics (ABS) map data}
 \format{Simple features data frame with
 \describe{
@@ -37,20 +30,15 @@ as it is the union of the State and Territory layer.
 
 Statistical Areas Level 1 is not included as it is very large (56Mb after simplification).
 
-The mesh blocks are not included.
+The mesh blocks are not included, nor Greater Capital City Statistical Areas,
+Indigenous Regions, Remoteness Structure, Statistical Areas (L2, L3, L4),
+State Electoral Divisions. See 'ozmaps.data' for these.
 }
 \section{Data layers}{
 
 \describe{
 \item{abs_ced}{Commonwealth Electoral Divisions}
-\item{abs_gccsa}{Greater Capital City Statistical Areas}
-\item{abs_ireg}{Indigenous Regions}
 \item{abs_lga}{Local Goverment Areas}
-\item{abs_ra}{Remoteness Structure}
-\item{abs_sa2}{Statistical Areas Level 2}
-\item{abs_sa3}{Statistical Areas Level 3}
-\item{abs_sa4}{Statistical Areas Level 4}
-\item{abs_sed}{State Electoral Divisions}
 \item{abs_ste}{State and Territory}
 }
 }
@@ -58,9 +46,9 @@ The mesh blocks are not included.
 \examples{
 ozmap("abs_ste")
 
-ozmap("abs_gccsa", col = sample(rainbow(nrow(abs_gccsa), alpha = .4)))
+ozmap("abs_lga", col = sample(rainbow(nrow(abs_lga), alpha = .4)))
 opal <- ochRe::ochre_pal()
-ozmap("abs_sa4", col = opal(30))
+ozmap("abs_ced", col = opal(30))
 }
 \seealso{
 The script to create the data set set: data-raw/abs-inbuilt.R

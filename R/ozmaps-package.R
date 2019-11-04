@@ -2,8 +2,7 @@
 "_PACKAGE"
 
 globalVariables(c("ozmap_country", "ozmap_states",
-                  "abs_ced", "abs_gccsa", "abs_ireg", "abs_lga", "abs_ra",
-                  "abs_sa2", "abs_sa3", "abs_sa4", "abs_sed", "abs_ste"))
+                  "abs_ced", "abs_lga",  "abs_sed", "abs_ste"))
 
 
 #' Australian map data
@@ -41,20 +40,15 @@ NULL
 #'
 #' Statistical Areas Level 1 is not included as it is very large (56Mb after simplification).
 #'
-#' The mesh blocks are not included.
+#' The mesh blocks are not included, nor Greater Capital City Statistical Areas,
+#' Indigenous Regions, Remoteness Structure, Statistical Areas (L2, L3, L4),
+#' State Electoral Divisions. See 'ozmaps.data' for these.
 #'
 #'
 #' @section Data layers:
 #' \describe{
 ##' \item{abs_ced}{Commonwealth Electoral Divisions}
-#' \item{abs_gccsa}{Greater Capital City Statistical Areas}
-#' \item{abs_ireg}{Indigenous Regions}
 #' \item{abs_lga}{Local Goverment Areas}
-#' \item{abs_ra}{Remoteness Structure}
-#' \item{abs_sa2}{Statistical Areas Level 2}
-#' \item{abs_sa3}{Statistical Areas Level 3}
-#' \item{abs_sa4}{Statistical Areas Level 4}
-#' \item{abs_sed}{State Electoral Divisions}
 #' \item{abs_ste}{State and Territory}
 
 #' }
@@ -69,8 +63,8 @@ NULL
 #' @examples
 #' ozmap("abs_ste")
 #'
-#' ozmap("abs_gccsa", col = sample(rainbow(nrow(abs_gccsa), alpha = .4)))
+#' ozmap("abs_lga", col = sample(rainbow(nrow(abs_lga), alpha = .4)))
 #' opal <- ochRe::ochre_pal()
-#' ozmap("abs_sa4", col = opal(30))
-#' @aliases abs_ced abs_gccsa abs_ireg abs_lga abs_ra abs_sa2 abs_sa3 abs_sa4 abs_sed
+#' ozmap("abs_ced", col = opal(30))
+#' @aliases abs_ced abs_lga
 "abs_ste"

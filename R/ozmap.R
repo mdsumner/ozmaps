@@ -44,14 +44,14 @@ ozmap_data <- function(data = "states", quiet = FALSE, ...) {
                 states = ozmap_states_data(...),
                 country = ozmap_country_data(...),
                 abs_ced = ozmap_abs_ced_data(...),
-                abs_gccsa= ozmap_abs_gccsa_data(...),
-                abs_ireg = ozmap_abs_ireg_data(...),
+                #abs_gccsa= ozmap_abs_gccsa_data(...),
+                #abs_ireg = ozmap_abs_ireg_data(...),
                 abs_lga = ozmap_abs_lga_data(...),
-                abs_ra = ozmap_abs_ra_data(...),
-                abs_sa2 = ozmap_abs_sa2_data(...),
-                abs_sa3 = ozmap_abs_sa3_data(...),
-                abs_sa4 = ozmap_abs_sa4_data(...),
-                abs_sed = ozmap_abs_sed_data(...),
+                #abs_ra = ozmap_abs_ra_data(...),
+                #abs_sa2 = ozmap_abs_sa2_data(...),
+                #abs_sa3 = ozmap_abs_sa3_data(...),
+                #abs_sa4 = ozmap_abs_sa4_data(...),
+                #abs_sed = ozmap_abs_sed_data(...),
                 abs_ste = ozmap_abs_ste_data(...),
                 stop('data not found', data))
 
@@ -77,6 +77,8 @@ ozmap_abs_ced_data <- function(...) {
   abs_ced
 }
 ozmap_abs_gccsa_data <- function(...){
+  ## FIXME see commented out above, get from ozmaps.data if installed
+  ## plus message to install that
   abs_gccsa
 }
 ozmap_abs_ireg_data <- function(...) {
@@ -105,10 +107,10 @@ ozmap_abs_ste_data <- function(...){
  abs_ste
 }
 
-plot_bbox <- function(x) {
+plot_bbox <- function(x, ...) {
   xr <- x[c("xmin", "xmax")]
   yr <- x[c("ymin", "ymax")]
-  plot(xr, yr, type = "n", axes = FALSE, xlab = "", ylab = "")
+  plot(xr, yr, type = "n", axes = FALSE, xlab = "", ylab = "", ...)
 }
 
 
@@ -123,8 +125,18 @@ plot_sfc <- function(x, y, ..., lty = 1, lwd = 1, col = NA, border = 1, add = FA
   # FIXME: take care of lend, ljoin, xpd, and lmitre
   stopifnot(missing(y))
   geom <- x[[attr(x, "sf_column")]]
+  bb <- attr(geom, "bbox")
+  prj <- attr(geom, "crs")$proj4string
+  if (!"asp" %in% names(list(...))) {
+    asp <- 1
+    if (grepl("longlat", prj) || grepl("4326", prj)) {
+      asp <- 1/cos(mean(bb[c("ymin", "ymax")]) * pi/180)
+    }
+  } else {
+    asp <- list(...)$asp
+  }
   if (! add)
-    plot_bbox(attr(geom, "bbox"))
+    plot_bbox(bb, asp = asp)
   x <- geom
   lty = rep(lty, length.out = length(x))
   lwd = rep(lwd, length.out = length(x))
