@@ -47,9 +47,13 @@ ozmap <- function(x = "states", ..., add = FALSE) {
 #' @return `sf` data frame with 'NAME' and 'geometry' columns
 #' @export
 #' @examples
-#' ozmap_data("country")
 #'
-#' ozmap_data("abs_lga")
+#' country_sf <- ozmap_data("country")
+#'
+#' \donttest{
+#'  ## can take time to print out
+#'   (lga_sf <- ozmap_data("abs_lga"))
+#' }
 ozmap_data <- function(data = "states", quiet = FALSE, ...) {
   out <- switch(data,
                 states = ozmap_states_data(...),

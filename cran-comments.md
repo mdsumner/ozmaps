@@ -1,3 +1,12 @@
+## ozmaps 0.2.0 2nd submission 
+
+* Fixed broken links. 
+
+* Reduced example run time. 
+
+Thank you very much. 
+
+
 ## Test environments
 * local ubuntu install, R 3.6.1
 * ubuntu 14.04 (on travis-ci), R 3.6.1

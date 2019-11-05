@@ -30,7 +30,11 @@ Available layers are
 }
 }
 \examples{
-ozmap_data("country")
 
-ozmap_data("abs_lga")
+country_sf <- ozmap_data("country")
+
+\donttest{
+ ## can take time to print out
+  (lga_sf <- ozmap_data("abs_lga"))
+}
 }
