@@ -34,11 +34,11 @@ ozmap <- function(x = "states", ..., add = FALSE) {
 #'
 #' Available layers are
 #'
-#' * [states](ozmap_states) state and territories (low resolution)
-#' * [country](ozmap_country) entire country (low resolution)
-#' * [abs_ced] country level electoral divisions
-#' * [abs_lga] local government areas
-#' * [abs_ste] state and territories
+#' * **states** [ozmap_states] state and territories (low resolution)
+#' * **country** [ozmap_country] entire country (low resolution)
+#' * **abs_ced** [abs_ced] country level electoral divisions
+#' * **abs_lga** [abs_lga] local government areas
+#' * **abs_ste** [abs_ste] state and territories
 #'
 #' @param data name of layer to return, see details
 #' @param quiet set to `TRUE` to suppress messages

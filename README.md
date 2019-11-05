@@ -120,5 +120,6 @@ ozmap("abs_ste", col = opal(nrow(abs_ste)))
 -----
 
 Please note that the ‘ozmaps’ project is released with a [Contributor
-Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project,
-you agree to abide by its terms.
+Code of
+Conduct](https://github.com/mdsumner/ozmaps/blob/master/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.

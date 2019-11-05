@@ -35,7 +35,7 @@ State Electoral Divisions. See 'ozmaps.data' for these.
 
 \describe{
 \item{abs_ced}{Commonwealth Electoral Divisions}
-\item{abs_lga}{Local Goverment Areas}
+\item{abs_lga}{Local Government Areas}
 \item{abs_ste}{State and Territory}
 }
 }

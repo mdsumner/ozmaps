@@ -9,10 +9,10 @@
 Maps of Australian coastline and administrative regions. Data 
  can be drawn or accessed directly as simple features objects. Includes
  simple functions for country or state maps of Australia and in-built data
- sets of administrative regions from the Australian Bureau of Statistics. Layers
- include electoral divisions and local government areas, simplified from the
- original sources but with sufficient detail to allow mapping of a local 
- municipality.
+ sets of administrative regions from the Australian Bureau of Statistics 
+ <https://www.abs.gov.au/>. Layers include electoral divisions and local 
+ government areas, simplified from the original sources but with sufficient 
+ detail to allow mapping of a local municipality.
 }
 \seealso{
 Useful links:
@@ -28,7 +28,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item Dianne Cook [contributor]
-  \item Edzer Pebesma (wrote the plot code for sf internalized here) [contributor]
+  \item Edzer Pebesma (sf plot) [contributor]
 }
 
 }

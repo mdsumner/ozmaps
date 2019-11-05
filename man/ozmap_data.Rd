@@ -22,11 +22,11 @@ Return simple features data frames of various Australian map layers.
 \details{
 Available layers are
 \itemize{
-\item \href{ozmap_states}{states} state and territories (low resolution)
-\item \href{ozmap_country}{country} entire country (low resolution)
-\item \link{abs_ced} country level electoral divisions
-\item \link{abs_lga} local government areas
-\item \link{abs_ste} state and territories
+\item \strong{states} \link{ozmap_states} state and territories (low resolution)
+\item \strong{country} \link{ozmap_country} entire country (low resolution)
+\item \strong{abs_ced} \link{abs_ced} country level electoral divisions
+\item \strong{abs_lga} \link{abs_lga} local government areas
+\item \strong{abs_ste} \link{abs_ste} state and territories
 }
 }
 \examples{
