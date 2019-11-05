@@ -35,6 +35,7 @@ country_sf <- ozmap_data("country")
 
 \donttest{
  ## can take time to print out
-  (lga_sf <- ozmap_data("abs_lga"))
+ lga_sf <- ozmap_data("abs_lga")
+ lga_sf[1:6, ]
 }
 }

@@ -52,7 +52,8 @@ ozmap <- function(x = "states", ..., add = FALSE) {
 #'
 #' \donttest{
 #'  ## can take time to print out
-#'   (lga_sf <- ozmap_data("abs_lga"))
+#'  lga_sf <- ozmap_data("abs_lga")
+#'  lga_sf[1:6, ]
 #' }
 ozmap_data <- function(data = "states", quiet = FALSE, ...) {
   out <- switch(data,
