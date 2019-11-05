@@ -102,22 +102,20 @@
 <p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
 <p>Obtain the data used in <code>sf</code> form.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">sf_oz &lt;-<span class="st"> </span><span class="kw"><a href="reference/ozmap_data.html">ozmap_data</a></span>(<span class="st">"states"</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; returning `sf` data format</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt;  to use/plot ensure `sf` package is installed, then `library(sf)`</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span>(sf_oz)</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; # A tibble: 9 x 2</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;   NAME                                                             geometry</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt;   &lt;chr&gt;                                                  &lt;MULTIPOLYGON [°]&gt;</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 1 New South Wales     (((150.7016 -35.12286, 150.6611 -35.11782, 150.6373 …</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; 2 Victoria            (((146.6196 -38.70196, 146.6721 -38.70259, 146.6744 …</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; 3 Queensland          (((148.8473 -20.3457, 148.8722 -20.37575, 148.8515 -…</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; 4 South Australia     (((137.3481 -34.48242, 137.3749 -34.46885, 137.3805 …</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; 5 Western Australia   (((126.3868 -14.01168, 126.3625 -13.98264, 126.3765 …</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 6 Tasmania            (((147.8397 -40.29844, 147.8902 -40.30258, 147.8812 …</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; 7 Northern Territory  (((136.3669 -13.84237, 136.3339 -13.83922, 136.3532 …</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="co">#&gt; 8 Australian Capital… (((149.2317 -35.222, 149.2346 -35.24047, 149.2716 -3…</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; 9 Other Territories   (((167.9333 -29.05421, 167.9188 -29.0344, 167.9313 -…</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span>(sf_oz)</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; # A tibble: 9 x 2</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt;   NAME                                                             geometry</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt;   &lt;chr&gt;                                                  &lt;MULTIPOLYGON [°]&gt;</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; 1 New South Wales     (((150.7016 -35.12286, 150.6611 -35.11782, 150.6373 …</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; 2 Victoria            (((146.6196 -38.70196, 146.6721 -38.70259, 146.6744 …</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 3 Queensland          (((148.8473 -20.3457, 148.8722 -20.37575, 148.8515 -…</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; 4 South Australia     (((137.3481 -34.48242, 137.3749 -34.46885, 137.3805 …</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; 5 Western Australia   (((126.3868 -14.01168, 126.3625 -13.98264, 126.3765 …</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; 6 Tasmania            (((147.8397 -40.29844, 147.8902 -40.30258, 147.8812 …</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; 7 Northern Territory  (((136.3669 -13.84237, 136.3339 -13.83922, 136.3532 …</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14"><span class="co">#&gt; 8 Australian Capital… (((149.2317 -35.222, 149.2346 -35.24047, 149.2716 -3…</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15"><span class="co">#&gt; 9 Other Territories   (((167.9333 -29.05421, 167.9188 -29.0344, 167.9313 -…</span></a></code></pre></div>
 <p>Plot with a custom palette.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(sf)</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2">nmjr &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span>(paletteer<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span>(<span class="dt">package =</span> <span class="st">"ochRe"</span>, <span class="dt">palette =</span> <span class="st">"namatjira_qual"</span>))(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(sf_oz))</a>

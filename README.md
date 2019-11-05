@@ -64,8 +64,6 @@ Obtain the data used in `sf` form.
 
 ``` r
 sf_oz <- ozmap_data("states")
-#> returning `sf` data format
-#>  to use/plot ensure `sf` package is installed, then `library(sf)`
 
 tibble::as_tibble(sf_oz)
 #> # A tibble: 9 x 2

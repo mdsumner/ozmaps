@@ -9,9 +9,4 @@
 
 * This is a new release.
 
-* The installed size is 5.3Mb, this has been set by simplifying the three inbuilt
- Australian Bureau of Statistics layers (abs_ced, abs_lga, abs_ste) to 4% of
- their original size. I want the detail to be reasonable for any local government
- area in Australia and so I hope this installed size is acceptable. The package 
- itself is under 3.5Mb.  
- 
+* The package itself is under 4Mb.   The installed size is > 5.Mb. 
