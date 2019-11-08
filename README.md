@@ -92,7 +92,7 @@ plot(st_geometry(sf_oz), col = nmjr)
 
 ``` r
 
-## soon...plot directly with ggplot2
+## plot directly with ggplot2
 library(ggplot2)
 ggplot(sf_oz, aes(fill = NAME)) + geom_sf() + coord_sf(crs = "+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84") + scale_fill_manual(values = nmjr)
 ```
@@ -116,6 +116,38 @@ ozmap("abs_ste", col = opal(nrow(abs_ste)))
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-2.png" width="100%" />
+
+## Resolution
+
+These ABS layers `abs_ced`, `abs_lga`, and `abs_ste` are derived from
+the 2016 sources and simplified using `rmapshaper::ms_simplify(, keep
+= 0.05, keep_shapes = TRUE)` so all the original polygons are there.
+There is sufficient detail to map many (most?) of the regions on their
+own, which was a major goal for this package.
+
+The cache of the source data at original resolution is available in
+[ozmaps.data](https://github.com/mdsumner/ozmaps.data/).
+
+Compare the detail of Bruny Island here in this box, compared with the
+very basic maps package layer.
+
+``` r
+library(dplyr)
+kbor <- abs_lga %>% dplyr::filter(grepl("Kingborough", NAME))
+bb <- st_bbox(kbor)
+
+layout(matrix(c(1, 1, 1, 2, 2, 2, 2, 2, 2), nrow = 3))
+plot(kbor, reset = FALSE, main = "Kingborough (TAS)")
+rect(bb["xmin"], bb["ymin"], bb["xmax"], bb["ymax"])
+library(mapdata)
+#> Loading required package: maps
+par(mar = rep(0, 4))
+plot(c(145, 148.5), c(-43.6, -40.8), type = "n", asp = 1/cos(mean(bb[c(2, 4)]) * pi/180), axes = FALSE, xlab = "", ylab = "")
+maps::map(database = "worldHires", regions = "australia", xlim = c(145, 148.5), ylim = c(-43.6, -40.8), add = TRUE)
+rect(bb["xmin"], bb["ymin"], bb["xmax"], bb["ymax"])
+```
+
+<img src="man/figures/README-detail-1.png" width="100%" />
 
 -----
 

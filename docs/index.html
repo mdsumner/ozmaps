@@ -122,7 +122,7 @@
 <a class="sourceLine" id="cb7-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/sf/man/st_geometry.html">st_geometry</a></span>(sf_oz), <span class="dt">col =</span> nmjr)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="100%"></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">## soon...plot directly with ggplot2</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">## plot directly with ggplot2</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
 <a class="sourceLine" id="cb8-4" data-line-number="4"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(sf_oz, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> NAME)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span>(<span class="dt">crs =</span> <span class="st">"+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84"</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> nmjr)</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-7-2.png" width="100%"></p>
@@ -134,6 +134,27 @@
 <a class="sourceLine" id="cb10-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="st">"abs_ste"</span>, <span class="dt">col =</span> <span class="kw">opal</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(abs_ste)))</a></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-8-2.png" width="100%"></p>
+</div>
+<div id="resolution" class="section level2">
+<h2 class="hasAnchor">
+<a href="#resolution" class="anchor"></a>Resolution</h2>
+<p>These ABS layers <code>abs_ced</code>, <code>abs_lga</code>, and <code>abs_ste</code> are derived from the 2016 sources and simplified using <code><a href="https://rdrr.io/pkg/rmapshaper/man/ms_simplify.html">rmapshaper::ms_simplify(, keep = 0.05, keep_shapes = TRUE)</a></code> so all the original polygons are there. There is sufficient detail to map many (most?) of the regions on their own, which was a major goal for this package.</p>
+<p>The cache of the source data at original resolution is available in <a href="https://github.com/mdsumner/ozmaps.data/">ozmaps.data</a>.</p>
+<p>Compare the detail of Bruny Island here in this box, compared with the very basic maps package layer.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">kbor &lt;-<span class="st"> </span>abs_lga <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="st">"Kingborough"</span>, NAME))</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">bb &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/sf/man/st_bbox.html">st_bbox</a></span>(kbor)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/graphics/layout.html">layout</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">nrow =</span> <span class="dv">3</span>))</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(kbor, <span class="dt">reset =</span> <span class="ot">FALSE</span>, <span class="dt">main =</span> <span class="st">"Kingborough (TAS)"</span>)</a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/graphics/rect.html">rect</a></span>(bb[<span class="st">"xmin"</span>], bb[<span class="st">"ymin"</span>], bb[<span class="st">"xmax"</span>], bb[<span class="st">"ymax"</span>])</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(mapdata)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="co">#&gt; Loading required package: maps</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mar =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="dv">0</span>, <span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">145</span>, <span class="fl">148.5</span>), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">43.6</span>, <span class="fl">-40.8</span>), <span class="dt">type =</span> <span class="st">"n"</span>, <span class="dt">asp =</span> <span class="dv">1</span><span class="op">/</span><span class="kw"><a href="https://rdrr.io/r/base/Trig.html">cos</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(bb[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>, <span class="dv">4</span>)]) <span class="op">*</span><span class="st"> </span>pi<span class="op">/</span><span class="dv">180</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">""</span>, <span class="dt">ylab =</span> <span class="st">""</span>)</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">maps<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/maps/man/map.html">map</a></span>(<span class="dt">database =</span> <span class="st">"worldHires"</span>, <span class="dt">regions =</span> <span class="st">"australia"</span>, <span class="dt">xlim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">145</span>, <span class="fl">148.5</span>), <span class="dt">ylim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">43.6</span>, <span class="fl">-40.8</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13"><span class="kw"><a href="https://rdrr.io/r/graphics/rect.html">rect</a></span>(bb[<span class="st">"xmin"</span>], bb[<span class="st">"ymin"</span>], bb[<span class="st">"xmax"</span>], bb[<span class="st">"ymax"</span>])</a></code></pre></div>
+<p><img src="reference/figures/README-detail-1.png" width="100%"></p>
 <hr>
 <p>Please note that the ‘ozmaps’ project is released with a <a href="https://github.com/mdsumner/ozmaps/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
@@ -145,6 +166,8 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=ozmaps">https://​cloud.r-project.org/​package=ozmaps</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/mdsumner/ozmaps">https://​github.com/​mdsumner/​ozmaps</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/mdsumner/ozmaps/issues">https://​github.com/​mdsumner/​ozmaps/​issues</a>
