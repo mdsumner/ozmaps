@@ -33,7 +33,13 @@ The goal of ozmaps is to get maps of Australia to plot!
 
 # Installation
 
-ozmaps may be installed directly from github. 
+Install from CRAN with 
+
+```{r eval=FALSE}
+install.packages("ozmaps")
+```
+
+The development version of ozmaps may be installed directly from github. 
 
 ```{r, eval = FALSE}
 devtools::install_github("mdsumner/ozmaps")
