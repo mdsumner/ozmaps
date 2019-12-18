@@ -66,7 +66,7 @@ NULL
 #' if (utils::packageVersion("paletteer") < '1.0.0') {
 #'  pal <- paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual")
 #' } else {
-#'
+#'   pal <- paletteer::paletteer_d(palette = "ochRe::namatjira_qual")
 #' }
 #' opal <- colorRampPalette(pal)
 #' ozmap("abs_ced", col = opal(30))
