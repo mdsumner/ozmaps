@@ -63,7 +63,12 @@ NULL
 #' ozmap("abs_ste")
 #'
 #' ozmap("abs_lga", col = sample(rainbow(nrow(abs_lga), alpha = .4)))
-#' opal <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))
+#' if (utils::packageVersion("paletteer") < '1.0.0') {
+#'  pal <- paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual")
+#' } else {
+#'
+#' }
+#' opal <- colorRampPalette(pal)
 #' ozmap("abs_ced", col = opal(30))
 #' @aliases abs_ced abs_lga abs_ste
 #' @name abs-data

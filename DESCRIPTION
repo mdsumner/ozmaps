@@ -22,7 +22,7 @@ ByteCompile: true
 Depends: R (>= 3.3.0)
 Imports: oz, tibble
 Suggests: 
-    paletteer,
+    paletteer (>= 0.2.1),
     testthat,
     covr
 RoxygenNote: 6.1.1

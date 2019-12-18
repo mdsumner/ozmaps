@@ -1,8 +1,6 @@
-## ozmaps 0.2.0 2nd submission 
+## ozmaps 0.3.0 
 
-* Fixed broken links. 
-
-* Reduced example run time. 
+* Fix for change in paletteer 1.0.0, now works with paletteer (>= 0.2.1). 
 
 Thank you very much. 
 
@@ -14,8 +12,4 @@ Thank you very much.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 2 notes
-
-* This is a new release.
-
-* The package itself is under 4Mb.   The installed size is > 5.Mb. 
+0 errors | 0 warnings | 0 notes
