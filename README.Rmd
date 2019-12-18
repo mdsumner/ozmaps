@@ -90,9 +90,10 @@ library(sf)
 if (utils::packageVersion("paletteer") < '1.0.0') {
  pal <- paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual")
 } else {
-  
+  pal <- paletteer::paletteer_d(palette = "ochRe::namatjira_qual")
 } 
-nmjr <- colorRampPalette(pal)(nrow(sf_oz))
+opal <- colorRampPalette(pal)
+nmjr <- opal(nrow(sf_oz))
 plot(st_geometry(sf_oz), col = nmjr)
 
 ## plot directly with ggplot2
