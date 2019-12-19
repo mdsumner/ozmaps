@@ -24,8 +24,11 @@ Imports: oz, tibble
 Suggests: 
     paletteer (>= 0.2.1),
     testthat,
-    covr
+    covr,
+    knitr,
+    rmarkdown
 RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/mdsumner/ozmaps
 BugReports: https://github.com/mdsumner/ozmaps/issues
+VignetteBuilder: knitr
