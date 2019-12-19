@@ -63,8 +63,11 @@ NULL
 #' ozmap("abs_ste")
 #'
 #' ozmap("abs_lga", col = sample(rainbow(nrow(abs_lga), alpha = .4)))
-#' if (utils::packageVersion("paletteer") < '1.0.0') {
-#'  pal <- paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual")
+#' pal <- rainbow(12)  ## boring!  install paletteer
+#'
+#' if (isTRUE(requireNamespace("paletteer")) &&
+#'     utils::packageVersion("paletteer") < '1.0.0') {
+#'   pal <- paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual")
 #' } else {
 #'   pal <- paletteer::paletteer_d(palette = "ochRe::namatjira_qual")
 #' }
