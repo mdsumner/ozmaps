@@ -35,20 +35,20 @@ The goal of ozmaps is to get maps of Australia to plot!
 
 Install from CRAN with 
 
-```{r eval=FALSE}
+```{r install, eval=FALSE}
 install.packages("ozmaps")
 ```
 
 The development version of ozmaps may be installed directly from github. 
 
-```{r, eval = FALSE}
+```{r dev-install, eval = FALSE}
 devtools::install_github("mdsumner/ozmaps")
 ```
 
 The package includes some *simple features* data, which can be used
 independently of ozmaps with the 'sf' package. If required, install `sf` from CRAN. 
 
-```{r,eval=FALSE}
+```{r sf-install,eval=FALSE}
 install.packages("sf")
 ```
 
@@ -56,7 +56,7 @@ install.packages("sf")
 
 Plot Australia with states. 
 
-```{r}
+```{r ozmap}
 library(ozmaps)
 ozmap()
 
@@ -64,20 +64,20 @@ ozmap()
 
 Plot Australia without states. 
 
-```{r}
+```{r country}
 ozmap(x = "country")
 ```
 
 Add to an existing plot. 
 
-```{r}
+```{r add-plot}
 plot(quakes[c("long", "lat")], xlim = c(120, 190))
 ozmap(add = TRUE)
 ```
 
 Obtain the data used in `sf` form. 
 
-```{r}
+```{r sf-format}
 sf_oz <- ozmap_data("states")
 
 tibble::as_tibble(sf_oz)
@@ -85,9 +85,15 @@ tibble::as_tibble(sf_oz)
 
 Plot with a custom palette. 
 
-```{r}
+```{r ochRe}
 library(sf)
-nmjr <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))(nrow(sf_oz))
+if (utils::packageVersion("paletteer") < '1.0.0') {
+ pal <- paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual")
+} else {
+  pal <- paletteer::paletteer_d(palette = "ochRe::namatjira_qual")
+} 
+opal <- colorRampPalette(pal)
+nmjr <- opal(nrow(sf_oz))
 plot(st_geometry(sf_oz), col = nmjr)
 
 ## plot directly with ggplot2
@@ -98,13 +104,14 @@ ggplot(sf_oz, aes(fill = NAME)) + geom_sf() + coord_sf(crs = "+proj=lcc +lon_0=1
 
 Plot the ABS layers (from 2016). 
 
-```{r}
-opal <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))
+```{r abs}
 ozmap("abs_ced", col = opal(nrow(abs_ced)))
 
 
 ozmap("abs_ste", col = opal(nrow(abs_ste)))
 ```
+
+
 
 ## Resolution 
 
@@ -129,6 +136,8 @@ plot(c(145, 148.5), c(-43.6, -40.8), type = "n", asp = 1/cos(mean(bb[c(2, 4)]) *
 maps::map(database = "worldHires", regions = "australia", xlim = c(145, 148.5), ylim = c(-43.6, -40.8), add = TRUE)
 rect(bb["xmin"], bb["ymin"], bb["xmax"], bb["ymax"])
 ```
+
+
 
 ---
 

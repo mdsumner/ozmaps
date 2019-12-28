@@ -47,7 +47,7 @@ library(ozmaps)
 ozmap()
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-ozmap-1.png" width="100%" />
 
 Plot Australia without states.
 
@@ -55,7 +55,7 @@ Plot Australia without states.
 ozmap(x = "country")
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+<img src="man/figures/README-country-1.png" width="100%" />
 
 Add to an existing plot.
 
@@ -64,7 +64,7 @@ plot(quakes[c("long", "lat")], xlim = c(120, 190))
 ozmap(add = TRUE)
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-add-plot-1.png" width="100%" />
 
 Obtain the data used in `sf` form.
 
@@ -90,11 +90,17 @@ Plot with a custom palette.
 
 ``` r
 library(sf)
-nmjr <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))(nrow(sf_oz))
+if (utils::packageVersion("paletteer") < '1.0.0') {
+ pal <- paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual")
+} else {
+  pal <- paletteer::paletteer_d(palette = "ochRe::namatjira_qual")
+} 
+opal <- colorRampPalette(pal)
+nmjr <- opal(nrow(sf_oz))
 plot(st_geometry(sf_oz), col = nmjr)
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+<img src="man/figures/README-ochRe-1.png" width="100%" />
 
 ``` r
 
@@ -103,17 +109,15 @@ library(ggplot2)
 ggplot(sf_oz, aes(fill = NAME)) + geom_sf() + coord_sf(crs = "+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84") + scale_fill_manual(values = nmjr)
 ```
 
-<img src="man/figures/README-unnamed-chunk-8-2.png" width="100%" />
+<img src="man/figures/README-ochRe-2.png" width="100%" />
 
-Plot the ABS layers (from
-2016).
+Plot the ABS layers (from 2016).
 
 ``` r
-opal <- colorRampPalette(paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual"))
 ozmap("abs_ced", col = opal(nrow(abs_ced)))
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
+<img src="man/figures/README-abs-1.png" width="100%" />
 
 ``` r
 
@@ -121,7 +125,7 @@ ozmap("abs_ced", col = opal(nrow(abs_ced)))
 ozmap("abs_ste", col = opal(nrow(abs_ste)))
 ```
 
-<img src="man/figures/README-unnamed-chunk-9-2.png" width="100%" />
+<img src="man/figures/README-abs-2.png" width="100%" />
 
 ## Resolution
 

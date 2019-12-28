@@ -1,0 +1,71 @@
+---
+title: "ozmaps"
+output:
+  rmarkdown::html_vignette:
+    fig_width: 6
+    fig_height: 6
+vignette: >
+  %\VignetteIndexEntry{ozmaps}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The goal of ozmaps is to get maps of Australia to plot! The package itself is available from [CRAN](https://CRAN.r-project.org/package=ozmaps/). The package includes several data sets of Australian coastline, state outlines, local municipality boundaries (LGA, Local Government Areas) and electoral boundaries for commonwealth (nation) level. 
+
+These data layers may be plotted directly obtained as spatial data objects. The layers are a simplified subset (reduced detail, and not all layers included) of the Australian Bureau of Statistics 2016 map data. The original data sets and the process for their simplication and extraction is outlined in the [ozmaps.data package](https://github.com/mdsumner/ozmaps.data/). That package is an unfinished project designed to ease access to the more detailed and full data products that are available. 
+
+
+```{r setup}
+library(ozmaps)
+```
+Plot Australia with states. 
+
+```{r ozmap}
+library(ozmaps)
+ozmap()
+
+```
+
+Plot Australia without states. 
+
+```{r country}
+ozmap(x = "country")
+```
+
+Add to an existing plot. 
+
+```{r add-plot}
+plot(quakes[c("long", "lat")], xlim = c(120, 190))
+ozmap(add = TRUE)
+```
+
+Obtain the data used in `sf` form. 
+
+```{r sf-format}
+sf_oz <- ozmap_data("states")
+
+tibble::as_tibble(sf_oz)
+```
+
+Plot with a custom palette. 
+
+```{r ochRe}
+if (utils::packageVersion("paletteer") < '1.0.0') {
+ pal <- paletteer::paletteer_d(package = "ochRe", palette = "namatjira_qual")
+} else {
+  pal <- paletteer::paletteer_d(palette = "ochRe::namatjira_qual")
+} 
+opal <- colorRampPalette(pal)
+
+ozmap("abs_ced", col = opal(nrow(abs_ced)))
+
+ozmap("abs_ste", col = opal(nrow(abs_ste)))
+```
+

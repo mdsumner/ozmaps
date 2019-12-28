@@ -1,32 +1,13 @@
-## @knitr download
-#f <- "https://data.gov.au/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/cb2d6c1c-fd4c-4fd7-b93b-3796425bc0de/download/aug17adminboundsmapinfotabformat20170828133827.zip"
-f <- "https://data.gov.au/dataset/bdcf5b09-89bc-47ec-9281-6b8e9ee147aa/resource/53c24b8e-4f55-4eed-a189-2fc0dcca6381/download/aug17adminboundsesrishapefileordbffile20170821151234.zip"
-if (FALSE) {
-  if (!file.exists(basename(f))) download.file(f, basename(f), mode = "wb")
-  unzip(basename(f))
-}
+library(ozmaps.rdata)
 
-## @knitr files
-library(dplyr)
-fs <- tibble::tibble(fullname = list.files( recursive = TRUE, pattern = "shp$"))
+library(sf)
+x1 <- electoral
+x2 <- rmapshaper::ms_simplify(x1, keep_shapes = TRUE)
 
-## keep file and fullname, a habit of mine
-fs <- fs %>% dplyr::mutate(file = basename(fullname)) %>% dplyr::select(file, fullname)
+p <- silicate:::compact_indexes(silicate::PATH(x2))
+pryr::object_size(x2)
+pryr::object_size(p)
 
-fs
-## read all files and bind together in one object
-## (I find problems using map_df so I just avoid it
-## and ensure sf is attached)
-read_psma <- function(x, keep = 1) {
-  library(sf)
-  do.call(rbind, purrr::map(x, sf::read_sf))
-}
-
-## @knitr build-electoral
-
-# ## electoral (140Mb)
-elec <- read_psma(fs %>% dplyr::filter(grepl("STATE_ELECTORAL_POLYGON", file)) %>% dplyr::pull(fullname))
-electoral0 <- rmapshaper::ms_simplify(elec, keep_shapes = TRUE)
 electoral <- geojsonio::geo2topo(geojsonio::geojson_json(electoral0))
 #x <- sf::st_as_sf(geojsonio::geojson_sp(geojsonio::topo2geo(electoral)))
 #usethis::use_data(electoral)

@@ -15,6 +15,25 @@ cache:
 
 # Adapt as necessary starting from here
 
+branches:
+  # whitelist
+  only:
+    - master
+    - pal-fix
+
+environment:
+  global:
+    WARNINGS_ARE_ERRORS: 1
+
+  matrix:
+   - R_VERSION: devel
+     R_ARCH: x64
+     GCC_PATH: mingw_64
+
+   - R_VERSION: release
+     R_ARCH: x64
+
+
 build_script:
   - travis-tool.sh install_deps
 
