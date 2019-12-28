@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The goal of ozmaps is to get maps of Australia to plot! The package itself is available from [CRAN](https://r-project.org/package=ozmaps/). The package includes several data sets of Australian coastline, state outlines, local municipality boundaries (LGA, Local Government Areas) and electoral boundaries for commonwealth (nation) level. 
+The goal of ozmaps is to get maps of Australia to plot! The package itself is available from [CRAN](https://CRAN.r-project.org/package=ozmaps/). The package includes several data sets of Australian coastline, state outlines, local municipality boundaries (LGA, Local Government Areas) and electoral boundaries for commonwealth (nation) level. 
 
 These data layers may be plotted directly obtained as spatial data objects. The layers are a simplified subset (reduced detail, and not all layers included) of the Australian Bureau of Statistics 2016 map data. The original data sets and the process for their simplication and extraction is outlined in the [ozmaps.data package](https://github.com/mdsumner/ozmaps.data/). That package is an unfinished project designed to ease access to the more detailed and full data products that are available. 
 
