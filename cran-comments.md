@@ -1,6 +1,7 @@
 ## ozmaps 0.3.0 
 
-* Fix for change in paletteer 1.0.0, now works with paletteer (>= 0.2.1). 
+* Fix for change in paletteer 1.0.0, now works with paletteer (>= 0.2.1), 
+ as per notification email from CRAN 2019-12-18. 
 
 Thank you very much. 
 
