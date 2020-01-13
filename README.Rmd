@@ -46,7 +46,7 @@ devtools::install_github("mdsumner/ozmaps")
 ```
 
 The package includes some *simple features* data, which can be used
-independently of ozmaps with the 'sf' package. If required, install `sf` from CRAN. 
+independently of ozmaps with the `sf` package. If required, install `sf` from CRAN. 
 
 ```{r sf-install,eval=FALSE}
 install.packages("sf")
