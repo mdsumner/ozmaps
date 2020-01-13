@@ -92,6 +92,7 @@ if (utils::packageVersion("paletteer") < '1.0.0') {
 } else {
   pal <- paletteer::paletteer_d(palette = "ochRe::namatjira_qual")
 } 
+
 opal <- colorRampPalette(pal)
 nmjr <- opal(nrow(sf_oz))
 plot(st_geometry(sf_oz), col = nmjr)

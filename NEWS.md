@@ -1,4 +1,6 @@
+# ozmaps dev
 
+* README improvement thanks to Darío Hereñú (@kant). 
 
 # ozmaps 0.3.0
 
