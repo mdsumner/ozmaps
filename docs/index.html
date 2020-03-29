@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ozmaps</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -48,6 +48,9 @@
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
+</li>
+<li>
+  <a href="articles/ozmaps.html">Get started</a>
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
@@ -86,63 +89,63 @@
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
 <p>Install from CRAN with</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"ozmaps"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"ozmaps"</span>)</span></code></pre></div>
 <p>The development version of ozmaps may be installed directly from github.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">devtools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"mdsumner/ozmaps"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"mdsumner/ozmaps"</span>)</span></code></pre></div>
 <p>The package includes some <em>simple features</em> data, which can be used independently of ozmaps with the ‘sf’ package. If required, install <code>sf</code> from CRAN.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"sf"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"sf"</span>)</span></code></pre></div>
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
 <p>Plot Australia with states.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ozmaps)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ozmaps)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>()</span></code></pre></div>
 <p><img src="reference/figures/README-ozmap-1.png" width="100%"></p>
 <p>Plot Australia without states.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="dt">x =</span> <span class="st">"country"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="dt">x =</span> <span class="st">"country"</span>)</span></code></pre></div>
 <p><img src="reference/figures/README-country-1.png" width="100%"></p>
 <p>Add to an existing plot.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(quakes[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"long"</span>, <span class="st">"lat"</span>)], <span class="dt">xlim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">120</span>, <span class="dv">190</span>))</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="dt">add =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(quakes[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"long"</span>, <span class="st">"lat"</span>)], <span class="dt">xlim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">120</span>, <span class="dv">190</span>))</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="dt">add =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
 <p><img src="reference/figures/README-add-plot-1.png" width="100%"></p>
 <p>Obtain the data used in <code>sf</code> form.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">sf_oz &lt;-<span class="st"> </span><span class="kw"><a href="reference/ozmap_data.html">ozmap_data</a></span>(<span class="st">"states"</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span>(sf_oz)</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co">#&gt; # A tibble: 9 x 2</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co">#&gt;   NAME                                                             geometry</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="co">#&gt;   &lt;chr&gt;                                                  &lt;MULTIPOLYGON [°]&gt;</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; 1 New South Wales     (((150.7016 -35.12286, 150.6611 -35.11782, 150.6373 …</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; 2 Victoria            (((146.6196 -38.70196, 146.6721 -38.70259, 146.6744 …</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt; 3 Queensland          (((148.8473 -20.3457, 148.8722 -20.37575, 148.8515 -…</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt; 4 South Australia     (((137.3481 -34.48242, 137.3749 -34.46885, 137.3805 …</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; 5 Western Australia   (((126.3868 -14.01168, 126.3625 -13.98264, 126.3765 …</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; 6 Tasmania            (((147.8397 -40.29844, 147.8902 -40.30258, 147.8812 …</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co">#&gt; 7 Northern Territory  (((136.3669 -13.84237, 136.3339 -13.83922, 136.3532 …</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="co">#&gt; 8 Australian Capital… (((149.2317 -35.222, 149.2346 -35.24047, 149.2716 -3…</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; 9 Other Territories   (((167.9333 -29.05421, 167.9188 -29.0344, 167.9313 -…</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>sf_oz &lt;-<span class="st"> </span><span class="kw"><a href="reference/ozmap_data.html">ozmap_data</a></span>(<span class="st">"states"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a>tibble<span class="op">::</span><span class="kw"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span>(sf_oz)</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#&gt; # A tibble: 9 x 2</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co">#&gt;   NAME                                                                  geometry</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt;   &lt;chr&gt;                                                       &lt;MULTIPOLYGON [°]&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt; 1 New South Wales      (((150.7016 -35.12286, 150.6611 -35.11782, 150.6373 -35.…</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt; 2 Victoria             (((146.6196 -38.70196, 146.6721 -38.70259, 146.6744 -38.…</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; 3 Queensland           (((148.8473 -20.3457, 148.8722 -20.37575, 148.8515 -20.3…</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#&gt; 4 South Australia      (((137.3481 -34.48242, 137.3749 -34.46885, 137.3805 -34.…</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">#&gt; 5 Western Australia    (((126.3868 -14.01168, 126.3625 -13.98264, 126.3765 -13.…</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#&gt; 6 Tasmania             (((147.8397 -40.29844, 147.8902 -40.30258, 147.8812 -40.…</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">#&gt; 7 Northern Territory   (((136.3669 -13.84237, 136.3339 -13.83922, 136.3532 -13.…</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">#&gt; 8 Australian Capital … (((149.2317 -35.222, 149.2346 -35.24047, 149.2716 -35.27…</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co">#&gt; 9 Other Territories    (((167.9333 -29.05421, 167.9188 -29.0344, 167.9313 -29.0…</span></span></code></pre></div>
 <p>Plot with a custom palette.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(sf)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="cf">if</span> (utils<span class="op">::</span><span class="kw"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span>(<span class="st">"paletteer"</span>) <span class="op">&lt;</span><span class="st"> '1.0.0'</span>) {</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"> pal &lt;-<span class="st"> </span>paletteer<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span>(<span class="dt">package =</span> <span class="st">"ochRe"</span>, <span class="dt">palette =</span> <span class="st">"namatjira_qual"</span>)</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">} <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  pal &lt;-<span class="st"> </span>paletteer<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span>(<span class="dt">palette =</span> <span class="st">"ochRe::namatjira_qual"</span>)</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">} </a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">opal &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span>(pal)</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">nmjr &lt;-<span class="st"> </span><span class="kw">opal</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(sf_oz))</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/sf/man/st_geometry.html">st_geometry</a></span>(sf_oz), <span class="dt">col =</span> nmjr)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(sf)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="cf">if</span> (utils<span class="op">::</span><span class="kw"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span>(<span class="st">"paletteer"</span>) <span class="op">&lt;</span><span class="st"> '1.0.0'</span>) {</span>
+<span id="cb8-3"><a href="#cb8-3"></a> pal &lt;-<span class="st"> </span>paletteer<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span>(<span class="dt">package =</span> <span class="st">"ochRe"</span>, <span class="dt">palette =</span> <span class="st">"namatjira_qual"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>} <span class="cf">else</span> {</span>
+<span id="cb8-5"><a href="#cb8-5"></a>  pal &lt;-<span class="st"> </span>paletteer<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/paletteer/man/paletteer_d.html">paletteer_d</a></span>(<span class="dt">palette =</span> <span class="st">"ochRe::namatjira_qual"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6"></a>} </span>
+<span id="cb8-7"><a href="#cb8-7"></a>opal &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/grDevices/colorRamp.html">colorRampPalette</a></span>(pal)</span>
+<span id="cb8-8"><a href="#cb8-8"></a>nmjr &lt;-<span class="st"> </span><span class="kw">opal</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(sf_oz))</span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/pkg/sf/man/st_geometry.html">st_geometry</a></span>(sf_oz), <span class="dt">col =</span> nmjr)</span></code></pre></div>
 <p><img src="reference/figures/README-ochRe-1.png" width="100%"></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">## plot directly with ggplot2</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(sf_oz, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> NAME)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span>(<span class="dt">crs =</span> <span class="st">"+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84"</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> nmjr)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">## plot directly with ggplot2</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(sf_oz, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> NAME)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">coord_sf</a></span>(<span class="dt">crs =</span> <span class="st">"+proj=lcc +lon_0=135 +lat_0=-30 +lat_1=-10 +lat_2=-45 +datum=WGS84"</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> nmjr)</span></code></pre></div>
 <p><img src="reference/figures/README-ochRe-2.png" width="100%"></p>
 <p>Plot the ABS layers (from 2016).</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="st">"abs_ced"</span>, <span class="dt">col =</span> <span class="kw">opal</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(abs_ced)))</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="st">"abs_ced"</span>, <span class="dt">col =</span> <span class="kw">opal</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(abs_ced)))</span></code></pre></div>
 <p><img src="reference/figures/README-abs-1.png" width="100%"></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="st">"abs_ste"</span>, <span class="dt">col =</span> <span class="kw">opal</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(abs_ste)))</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw"><a href="reference/ozmap.html">ozmap</a></span>(<span class="st">"abs_ste"</span>, <span class="dt">col =</span> <span class="kw">opal</span>(<span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(abs_ste)))</span></code></pre></div>
 <p><img src="reference/figures/README-abs-2.png" width="100%"></p>
 </div>
 <div id="resolution" class="section level2">
@@ -151,19 +154,19 @@
 <p>These ABS layers <code>abs_ced</code>, <code>abs_lga</code>, and <code>abs_ste</code> are derived from the 2016 sources and simplified using <code><a href="https://rdrr.io/pkg/rmapshaper/man/ms_simplify.html">rmapshaper::ms_simplify(, keep = 0.05, keep_shapes = TRUE)</a></code> so all the original polygons are there. There is sufficient detail to map many (most?) of the regions on their own, which was a major goal for this package.</p>
 <p>The cache of the source data at original resolution is available in <a href="https://github.com/mdsumner/ozmaps.data/">ozmaps.data</a>.</p>
 <p>Compare the detail of Bruny Island here in this box, compared with the very basic maps package layer.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">kbor &lt;-<span class="st"> </span>abs_lga <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="st">"Kingborough"</span>, NAME))</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">bb &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/sf/man/st_bbox.html">st_bbox</a></span>(kbor)</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/graphics/layout.html">layout</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">nrow =</span> <span class="dv">3</span>))</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(kbor, <span class="dt">reset =</span> <span class="ot">FALSE</span>, <span class="dt">main =</span> <span class="st">"Kingborough (TAS)"</span>)</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/r/graphics/rect.html">rect</a></span>(bb[<span class="st">"xmin"</span>], bb[<span class="st">"ymin"</span>], bb[<span class="st">"xmax"</span>], bb[<span class="st">"ymax"</span>])</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(mapdata)</a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="co">#&gt; Loading required package: maps</span></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mar =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="dv">0</span>, <span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb12-11" data-line-number="11"><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">145</span>, <span class="fl">148.5</span>), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">43.6</span>, <span class="fl">-40.8</span>), <span class="dt">type =</span> <span class="st">"n"</span>, <span class="dt">asp =</span> <span class="dv">1</span><span class="op">/</span><span class="kw"><a href="https://rdrr.io/r/base/Trig.html">cos</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(bb[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>, <span class="dv">4</span>)]) <span class="op">*</span><span class="st"> </span>pi<span class="op">/</span><span class="dv">180</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">""</span>, <span class="dt">ylab =</span> <span class="st">""</span>)</a>
-<a class="sourceLine" id="cb12-12" data-line-number="12">maps<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/maps/man/map.html">map</a></span>(<span class="dt">database =</span> <span class="st">"worldHires"</span>, <span class="dt">regions =</span> <span class="st">"australia"</span>, <span class="dt">xlim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">145</span>, <span class="fl">148.5</span>), <span class="dt">ylim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">43.6</span>, <span class="fl">-40.8</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb12-13" data-line-number="13"><span class="kw"><a href="https://rdrr.io/r/graphics/rect.html">rect</a></span>(bb[<span class="st">"xmin"</span>], bb[<span class="st">"ymin"</span>], bb[<span class="st">"xmax"</span>], bb[<span class="st">"ymax"</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>kbor &lt;-<span class="st"> </span>abs_lga <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span>(<span class="st">"Kingborough"</span>, NAME))</span>
+<span id="cb12-3"><a href="#cb12-3"></a>bb &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/sf/man/st_bbox.html">st_bbox</a></span>(kbor)</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="kw"><a href="https://rdrr.io/r/graphics/layout.html">layout</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">nrow =</span> <span class="dv">3</span>))</span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(kbor, <span class="dt">reset =</span> <span class="ot">FALSE</span>, <span class="dt">main =</span> <span class="st">"Kingborough (TAS)"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="kw"><a href="https://rdrr.io/r/graphics/rect.html">rect</a></span>(bb[<span class="st">"xmin"</span>], bb[<span class="st">"ymin"</span>], bb[<span class="st">"xmax"</span>], bb[<span class="st">"ymax"</span>])</span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(mapdata)</span>
+<span id="cb12-9"><a href="#cb12-9"></a><span class="co">#&gt; Loading required package: maps</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">mar =</span> <span class="kw"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="dv">0</span>, <span class="dv">4</span>))</span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="kw"><a href="https://rdrr.io/pkg/sf/man/plot.html">plot</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">145</span>, <span class="fl">148.5</span>), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">43.6</span>, <span class="fl">-40.8</span>), <span class="dt">type =</span> <span class="st">"n"</span>, <span class="dt">asp =</span> <span class="dv">1</span><span class="op">/</span><span class="kw"><a href="https://rdrr.io/r/base/Trig.html">cos</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/mean.html">mean</a></span>(bb[<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">2</span>, <span class="dv">4</span>)]) <span class="op">*</span><span class="st"> </span>pi<span class="op">/</span><span class="dv">180</span>), <span class="dt">axes =</span> <span class="ot">FALSE</span>, <span class="dt">xlab =</span> <span class="st">""</span>, <span class="dt">ylab =</span> <span class="st">""</span>)</span>
+<span id="cb12-12"><a href="#cb12-12"></a>maps<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/maps/man/map.html">map</a></span>(<span class="dt">database =</span> <span class="st">"worldHires"</span>, <span class="dt">regions =</span> <span class="st">"australia"</span>, <span class="dt">xlim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">145</span>, <span class="fl">148.5</span>), <span class="dt">ylim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">43.6</span>, <span class="fl">-40.8</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="kw"><a href="https://rdrr.io/r/graphics/rect.html">rect</a></span>(bb[<span class="st">"xmin"</span>], bb[<span class="st">"ymin"</span>], bb[<span class="st">"xmax"</span>], bb[<span class="st">"ymax"</span>])</span></code></pre></div>
 <p><img src="reference/figures/README-detail-1.png" width="100%"></p>
 <hr>
 <p>Please note that the ‘ozmaps’ project is released with a <a href="https://github.com/mdsumner/ozmaps/blob/master/CODE_OF_CONDUCT.md">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>

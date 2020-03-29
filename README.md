@@ -45,8 +45,6 @@ Plot Australia with states.
 ``` r
 library(ozmaps)
 ozmap()
-#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
-#> which is deprecated.
 ```
 
 <img src="man/figures/README-ozmap-1.png" width="100%" />
@@ -55,8 +53,6 @@ Plot Australia without states.
 
 ``` r
 ozmap(x = "country")
-#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
-#> which is deprecated.
 ```
 
 <img src="man/figures/README-country-1.png" width="100%" />
@@ -66,8 +62,6 @@ Add to an existing plot.
 ``` r
 plot(quakes[c("long", "lat")], xlim = c(120, 190))
 ozmap(add = TRUE)
-#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
-#> which is deprecated.
 ```
 
 <img src="man/figures/README-add-plot-1.png" width="100%" />
@@ -121,8 +115,6 @@ Plot the ABS layers (from 2016).
 
 ``` r
 ozmap("abs_ced", col = opal(nrow(abs_ced)))
-#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
-#> which is deprecated.
 ```
 
 <img src="man/figures/README-abs-1.png" width="100%" />
@@ -131,8 +123,6 @@ ozmap("abs_ced", col = opal(nrow(abs_ced)))
 
 
 ozmap("abs_ste", col = opal(nrow(abs_ste)))
-#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
-#> which is deprecated.
 ```
 
 <img src="man/figures/README-abs-2.png" width="100%" />
