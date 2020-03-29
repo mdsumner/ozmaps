@@ -5,6 +5,7 @@ ozmap_country <- sf::st_as_sf(tibble::tibble(NAME = "Australia", geometry = sf::
 class(ozmap_states$geometry) <-  c("sfc_MULTIPOLYGON", "sfc", "list")
 class(ozmap_country$geometry) <- c("sfc_MULTIPOLYGON", "sfc", "list")
 
+
 usethis::use_data(ozmap_states, overwrite = TRUE)
 usethis::use_data(ozmap_country, overwrite = TRUE)
 
