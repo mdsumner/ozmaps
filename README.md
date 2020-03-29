@@ -31,7 +31,7 @@ devtools::install_github("mdsumner/ozmaps")
 ```
 
 The package includes some *simple features* data, which can be used
-independently of ozmaps with the ‘sf’ package. If required, install `sf`
+independently of ozmaps with the `sf` package. If required, install `sf`
 from CRAN.
 
 ``` r
@@ -95,6 +95,7 @@ if (utils::packageVersion("paletteer") < '1.0.0') {
 } else {
   pal <- paletteer::paletteer_d(palette = "ochRe::namatjira_qual")
 } 
+
 opal <- colorRampPalette(pal)
 nmjr <- opal(nrow(sf_oz))
 plot(st_geometry(sf_oz), col = nmjr)
