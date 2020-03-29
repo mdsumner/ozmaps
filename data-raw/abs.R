@@ -7,9 +7,22 @@ fs <- c(grep("ced",f, value = TRUE),
 file.copy(fs,
           "data/")
 
+ library(ozmaps)
+ library(tibble)
+ abs_ced <- sf::st_as_sf(as_tibble(abs_ced))
+ class(abs_ced$geometry) <- c("sfc_MULTIPOLYGON", "sfc", "list")
+ abs_lga <- sf::st_as_sf(as_tibble(abs_lga))
+ class(abs_lga$geometry) <- c("sfc_MULTIPOLYGON", "sfc", "list")
+ abs_ste <- sf::st_as_sf(as_tibble(abs_ste))
+ class(abs_ste$geometry) <- c("sfc_MULTIPOLYGON", "sfc", "list")
+
+ usethis::use_data(abs_ced,
+                   abs_lga,
+                   abs_ste, overwrite = TRUE)
+
+
 # library(ozmaps)
 # library(tibble)
-# abs_ced <- sf::st_as_sf(as_tibble(abs_ced))
 # abs_ced <- sf::st_as_sf(as_tibble(abs_ced))
 # abs_gccsa <- sf::st_as_sf(as_tibble(abs_gccsa))
 # abs_ireg <- sf::st_as_sf(as_tibble(abs_ireg))
