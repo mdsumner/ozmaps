@@ -45,6 +45,8 @@ Plot Australia with states.
 ``` r
 library(ozmaps)
 ozmap()
+#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
+#> which is deprecated.
 ```
 
 <img src="man/figures/README-ozmap-1.png" width="100%" />
@@ -53,6 +55,8 @@ Plot Australia without states.
 
 ``` r
 ozmap(x = "country")
+#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
+#> which is deprecated.
 ```
 
 <img src="man/figures/README-country-1.png" width="100%" />
@@ -62,6 +66,8 @@ Add to an existing plot.
 ``` r
 plot(quakes[c("long", "lat")], xlim = c(120, 190))
 ozmap(add = TRUE)
+#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
+#> which is deprecated.
 ```
 
 <img src="man/figures/README-add-plot-1.png" width="100%" />
@@ -73,17 +79,17 @@ sf_oz <- ozmap_data("states")
 
 tibble::as_tibble(sf_oz)
 #> # A tibble: 9 x 2
-#>   NAME                                                             geometry
-#>   <chr>                                                  <MULTIPOLYGON [°]>
-#> 1 New South Wales     (((150.7016 -35.12286, 150.6611 -35.11782, 150.6373 …
-#> 2 Victoria            (((146.6196 -38.70196, 146.6721 -38.70259, 146.6744 …
-#> 3 Queensland          (((148.8473 -20.3457, 148.8722 -20.37575, 148.8515 -…
-#> 4 South Australia     (((137.3481 -34.48242, 137.3749 -34.46885, 137.3805 …
-#> 5 Western Australia   (((126.3868 -14.01168, 126.3625 -13.98264, 126.3765 …
-#> 6 Tasmania            (((147.8397 -40.29844, 147.8902 -40.30258, 147.8812 …
-#> 7 Northern Territory  (((136.3669 -13.84237, 136.3339 -13.83922, 136.3532 …
-#> 8 Australian Capital… (((149.2317 -35.222, 149.2346 -35.24047, 149.2716 -3…
-#> 9 Other Territories   (((167.9333 -29.05421, 167.9188 -29.0344, 167.9313 -…
+#>   NAME                                                                  geometry
+#>   <chr>                                                       <MULTIPOLYGON [°]>
+#> 1 New South Wales      (((150.7016 -35.12286, 150.6611 -35.11782, 150.6373 -35.…
+#> 2 Victoria             (((146.6196 -38.70196, 146.6721 -38.70259, 146.6744 -38.…
+#> 3 Queensland           (((148.8473 -20.3457, 148.8722 -20.37575, 148.8515 -20.3…
+#> 4 South Australia      (((137.3481 -34.48242, 137.3749 -34.46885, 137.3805 -34.…
+#> 5 Western Australia    (((126.3868 -14.01168, 126.3625 -13.98264, 126.3765 -13.…
+#> 6 Tasmania             (((147.8397 -40.29844, 147.8902 -40.30258, 147.8812 -40.…
+#> 7 Northern Territory   (((136.3669 -13.84237, 136.3339 -13.83922, 136.3532 -13.…
+#> 8 Australian Capital … (((149.2317 -35.222, 149.2346 -35.24047, 149.2716 -35.27…
+#> 9 Other Territories    (((167.9333 -29.05421, 167.9188 -29.0344, 167.9313 -29.0…
 ```
 
 Plot with a custom palette.
@@ -115,6 +121,8 @@ Plot the ABS layers (from 2016).
 
 ``` r
 ozmap("abs_ced", col = opal(nrow(abs_ced)))
+#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
+#> which is deprecated.
 ```
 
 <img src="man/figures/README-abs-1.png" width="100%" />
@@ -123,6 +131,8 @@ ozmap("abs_ced", col = opal(nrow(abs_ced)))
 
 
 ozmap("abs_ste", col = opal(nrow(abs_ste)))
+#> Warning in `$.crs`(attr(geom, "crs"), "proj4string"): CRS uses proj4string,
+#> which is deprecated.
 ```
 
 <img src="man/figures/README-abs-2.png" width="100%" />

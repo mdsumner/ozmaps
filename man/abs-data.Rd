@@ -6,11 +6,13 @@
 \alias{abs_lga}
 \alias{abs_ste}
 \title{Australian Bureau of Statistics (ABS) map data}
-\format{Simple features data frame with
+\format{
+Simple features data frame with
 \describe{
 \item{NAME}{Area name}
 \item{geometry}{Geometry column in 'sfc' format}
-}}
+}
+}
 \description{
 These data sets are simplifications of the formal statistical areas
 and regions published by the ABS in 2016.

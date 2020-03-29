@@ -15,7 +15,6 @@ globalVariables(c("ozmap_country", "ozmap_states",
 #' @name ozmap_states
 #' @aliases ozmap_country
 #' @docType data
-#' @importFrom tibble tibble as_tibble
 NULL
 
 
