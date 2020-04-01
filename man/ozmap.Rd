@@ -26,11 +26,15 @@ outline data is purely in longitude-latitude form, see
 See \code{abs_ste} for more detailed versions from the Australian Bureau of Statistics.
 An example is 'abs_ste' which means 'State and Territory', and
 so is a more detailed version of 'states'.
+
+\code{ozmap()} uses the sf package to plot, but does so by only plotting the
+geometry rather than every colum, and leaves the plot region ready for overplotting with other
+data.
 }
 \examples{
 ozmap()
-ozmap("country")
-ozmap("abs_ced")  ## commonwealth (national) electoral divisions
+ozmap("country", lwd = 6)
+ozmap("abs_ced", add = TRUE, border = "firebrick")  ## commonwealth (national) electoral divisions
 }
 \seealso{
 ozmap_data

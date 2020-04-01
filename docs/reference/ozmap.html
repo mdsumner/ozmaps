@@ -149,12 +149,15 @@
 <p>See <code>abs_ste</code> for more detailed versions from the Australian Bureau of Statistics.
 An example is 'abs_ste' which means 'State and Territory', and
 so is a more detailed version of 'states'.</p>
+<p><code>ozmap()</code> uses the sf package to plot, but does so by only plotting the
+geometry rather than every colum, and leaves the plot region ready for overplotting with other
+data.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>ozmap_data</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>ozmap</span>()</div><div class='img'><img src='ozmap-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>ozmap</span>(<span class='st'>"country"</span>)</div><div class='img'><img src='ozmap-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>ozmap</span>(<span class='st'>"abs_ced"</span>)  <span class='co'>## commonwealth (national) electoral divisions</span></div><div class='img'><img src='ozmap-3.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>ozmap</span>()</div><div class='img'><img src='ozmap-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>ozmap</span>(<span class='st'>"country"</span>, <span class='kw'>lwd</span> <span class='kw'>=</span> <span class='fl'>6</span>)</div><div class='input'><span class='fu'>ozmap</span>(<span class='st'>"abs_ced"</span>, <span class='kw'>add</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>border</span> <span class='kw'>=</span> <span class='st'>"firebrick"</span>)  <span class='co'>## commonwealth (national) electoral divisions</span></div><div class='img'><img src='ozmap-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
