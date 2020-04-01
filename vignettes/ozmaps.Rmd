@@ -51,7 +51,9 @@ Obtain the data used in `sf` form.
 ```{r sf-format}
 sf_oz <- ozmap_data("states")
 
-tibble::as_tibble(sf_oz)
+print(dim(sf_oz))
+
+print(names(sf_oz))
 ```
 
 Plot with a custom palette. 
