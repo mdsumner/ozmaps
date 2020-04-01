@@ -14,7 +14,7 @@
 #' @seealso ozmap_data
 #' @return the data set used, in 'sf' format
 #' @export
-#'
+#' @importFrom sf sf_extSoftVersion
 #' @examples
 #' ozmap()
 #' ozmap("country")
@@ -24,6 +24,7 @@ ozmap <- function(x = "states", ..., add = FALSE) {
     warning("states argument is deprecated, see 'oz::oz()' function")
   }
   x <- ozmap_data(x, quiet  = TRUE)
+
   plot_sfc(x, add = add, ...)
   invisible(x)
 }
@@ -133,7 +134,8 @@ plot_sfc <- function(x, y, ..., lty = 1, lwd = 1, col = NA, border = 1, add = FA
   stopifnot(missing(y))
   geom <- x[[attr(x, "sf_column")]]
   bb <- attr(geom, "bbox")
-  prj <- attr(geom, "crs")$proj4string
+  ## stfusf
+  prj <- attr(geom, "crs")[["proj4string"]]
   if (!"asp" %in% names(list(...))) {
     asp <- 1
     if (grepl("longlat", prj) || grepl("4326", prj)) {
