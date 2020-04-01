@@ -70,7 +70,7 @@ and regions published by the ABS in 2016." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ozmaps</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.5</span>
       </span>
     </div>
 
@@ -81,6 +81,9 @@ and regions published by the ABS in 2016." />
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
+</li>
+<li>
+  <a href="../articles/ozmaps.html">Get started</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -128,6 +131,7 @@ and regions published by the ABS in 2016.</p>
 <dt>geometry</dt><dd><p>Geometry column in 'sfc' format</p></dd>
 
 </dl>
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Each layer was read from the source file with 'sf' package and attributes were removed, leaving a single 'NAME'
@@ -157,15 +161,15 @@ State Electoral Divisions. See 'ozmaps.data' for these.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_ste"</span>)</div><div class='img'><img src='abs-data-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_lga"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>abs_lga</span>), <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>.4</span>)))</div><div class='input'><span class='no'>pal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span>(<span class='fl'>12</span>)  <span class='co'>## boring!  install paletteer</span>
+<span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_lga"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>abs_lga</span>), <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>.4</span>)))</div><div class='input'><span class='no'>pal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/palettes.html'>rainbow</a></span>(<span class='fl'>12</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.6</span>)  <span class='co'>## boring!  install paletteer for ochRe palettes</span>
 
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/Logic.html'>isTRUE</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span>(<span class='st'>"paletteer"</span>))) {
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/Logic.html'>isTRUE</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/ns-load.html'>requireNamespace</a></span>(<span class='st'>"paletteer"</span>, <span class='kw'>quietly</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))) {
   <span class='kw'>if</span> (<span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/packageDescription.html'>packageVersion</a></span>(<span class='st'>"paletteer"</span>) <span class='kw'>&lt;</span> <span class='st'>'1.0.0'</span>) {
    <span class='no'>pal</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>paletteer</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/paletteer/man/paletteer_d.html'>paletteer_d</a></span>(<span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"ochRe"</span>, <span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"namatjira_qual"</span>)
  } <span class='kw'>else</span> {
    <span class='no'>pal</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>paletteer</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/paletteer/man/paletteer_d.html'>paletteer_d</a></span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"ochRe::namatjira_qual"</span>)
  }
-}</div><div class='output co'>#&gt; <span class='message'>Loading required namespace: paletteer</span></div><div class='img'><img src='abs-data-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>opal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/colorRamp.html'>colorRampPalette</a></span>(<span class='no'>pal</span>)
+}</div><div class='img'><img src='abs-data-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>opal</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/grDevices/colorRamp.html'>colorRampPalette</a></span>(<span class='no'>pal</span>)
 <span class='fu'><a href='ozmap.html'>ozmap</a></span>(<span class='st'>"abs_ced"</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='fu'>opal</span>(<span class='fl'>30</span>))</div><div class='img'><img src='abs-data-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
