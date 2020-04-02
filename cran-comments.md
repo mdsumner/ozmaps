@@ -6,7 +6,18 @@
 
 Thank you very much. 
 
-### CRAN problems 2020-04-02 
+## Test environments
+* local ubuntu install, R 3.6.3
+* win-builder (devel)
+
+## R CMD check results
+
+0 errors | 0 warnings | 1 note
+
+* Size of package harmless note. 
+
+
+## CRAN problems addressed (2020-04-02)
 
 NOTE: about the size of the package 
 
@@ -61,13 +72,4 @@ r-oldrel-windows-ix86+x86_64	0.3.0	10.00	78.00	88.00	NOTE
 r-oldrel-osx-x86_64	0.3.0				NOTE	
 ```
 
-## Test environments
-* local ubuntu install, R 3.6.3
-* win-builder (devel)
-
-## R CMD check results
-
-0 errors | 0 warnings | 1 note
-
-* Size of package harmless note. 
 

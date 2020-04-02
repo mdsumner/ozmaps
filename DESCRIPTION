@@ -12,9 +12,7 @@ Authors@R: c(person("Michael", "Sumner",
               email = "mdsumner@gmail.com", 
               role = c("aut", "cre")), 
              person("Dianne", "Cook", role = "ctb"), 
-             person(given = "Edzer", family = "Pebesma",
-             role = c("ctb"),
-             comment = c("sf plot")))
+             person("Dario", "Herenu", role = "ctb"))
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

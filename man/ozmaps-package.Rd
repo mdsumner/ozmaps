@@ -28,7 +28,7 @@ Useful links:
 Other contributors:
 \itemize{
   \item Dianne Cook [contributor]
-  \item Edzer Pebesma (sf plot) [contributor]
+  \item Dario Herenu [contributor]
 }
 
 }
