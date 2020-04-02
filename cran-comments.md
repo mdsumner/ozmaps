@@ -1,4 +1,8 @@
-## ozmaps 0.3.5
+## ozmaps 0.3.6
+
+Resubmission (was 0.3.5), sorry. 
+
+* Removed large pdf from test outputs. 
 
 * Fix for new tibble.  
 
