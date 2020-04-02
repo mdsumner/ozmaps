@@ -34,6 +34,12 @@ The package includes some *simple features* data, which can be used
 independently of ozmaps with the `sf` package. If required, install `sf`
 from CRAN.
 
+**NOTE:** Since April 2020) we *must* have sf installed because of
+requirements of the tibble package.
+
+If sf causes you problems or you can’t work with it [get in
+touch](https://github.com/mdsumner/ozmaps/issues/) and I will help you.
+
 ``` r
 install.packages("sf")
 ```

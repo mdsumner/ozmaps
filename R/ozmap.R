@@ -8,23 +8,30 @@
 #' See `abs_ste` for more detailed versions from the Australian Bureau of Statistics.
 #' An example is 'abs_ste' which means 'State and Territory', and
 #' so is a more detailed version of 'states'.
+#'
+#' `ozmap()` uses the sf package to plot, but does so by only plotting the
+#' geometry rather than every colum, and leaves the plot region ready for overplotting with other
+#' data.
 #' @param x name of data set to use, default is `ozmap_country`
 #' @param add add to existing plot, `FALSE` by default
 #' @param ... arguments passed to ...
 #' @seealso ozmap_data
 #' @return the data set used, in 'sf' format
 #' @export
-#'
+#' @importFrom sf st_geometry
+#' @importFrom graphics plot
 #' @examples
 #' ozmap()
-#' ozmap("country")
-#' ozmap("abs_ced")  ## commonwealth (national) electoral divisions
+#' ozmap("country", lwd = 6)
+#' ozmap("abs_ced", add = TRUE, border = "firebrick")  ## commonwealth (national) electoral divisions
 ozmap <- function(x = "states", ..., add = FALSE) {
   if ("states" %in% names(list(...))) {
     warning("states argument is deprecated, see 'oz::oz()' function")
   }
   x <- ozmap_data(x, quiet  = TRUE)
-  plot_sfc(x, add = add, ...)
+
+
+  plot(sf::st_geometry(x), add = add, ..., reset = FALSE)
   invisible(x)
 }
 
@@ -112,59 +119,4 @@ ozmap_abs_lga_data <- function(...) {
 # }
 ozmap_abs_ste_data <- function(...){
  abs_ste
-}
-
-plot_bbox <- function(x, ...) {
-  xr <- x[c("xmin", "xmax")]
-  yr <- x[c("ymin", "ymax")]
-  plot(xr, yr, type = "n", axes = FALSE, xlab = "", ylab = "", ...)
-}
-
-
-
-## from sf
-# person(given = "Edzer",
-#        family = "Pebesma",
-#        role = c("ctb"),
-#        comment = c(ORCID = "0000-0001-8049-7069"))
-#' @importFrom graphics plot polypath
-plot_sfc <- function(x, y, ..., lty = 1, lwd = 1, col = NA, border = 1, add = FALSE, rule = "evenodd") {
-  # FIXME: take care of lend, ljoin, xpd, and lmitre
-  stopifnot(missing(y))
-  geom <- x[[attr(x, "sf_column")]]
-  bb <- attr(geom, "bbox")
-  prj <- attr(geom, "crs")$proj4string
-  if (!"asp" %in% names(list(...))) {
-    asp <- 1
-    if (grepl("longlat", prj) || grepl("4326", prj)) {
-      asp <- 1/cos(mean(bb[c("ymin", "ymax")]) * pi/180)
-    }
-  } else {
-    asp <- list(...)$asp
-  }
-  if (! add)
-    plot_bbox(bb, asp = asp)
-  x <- geom
-  lty = rep(lty, length.out = length(x))
-  lwd = rep(lwd, length.out = length(x))
-  col = rep(col, length.out = length(x))
-  border = rep(border, length.out = length(x))
-  #non_empty = ! st_is_empty(x)
-  lapply(seq_along(x), function(i) {
-      lapply(x[[i]], function(L) {
-        polypath(sf_p_bind(L), border = border[i], lty = lty[i], lwd = lwd[i], col = col[i], rule = rule)
-      })})
-  invisible(NULL)
-}
-
-
-sf_p_bind <- function(lst) {
-  if (length(lst) == 1)
-    lst[[1]]
-  else {
-    ret = vector("list", length(lst) * 2 - 1)
-    ret[seq(1, length(lst) * 2 - 1, by = 2)] = lst # odd elements
-    ret[seq(2, length(lst) * 2 - 1, by = 2)] = NA  # even elements
-    do.call(rbind, ret) # replicates the NA to form an NA row
-  }
 }

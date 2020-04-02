@@ -51,7 +51,9 @@ Obtain the data used in `sf` form.
 ```{r sf-format}
 sf_oz <- ozmap_data("states")
 
-tibble::as_tibble(sf_oz)
+print(dim(sf_oz))
+
+print(names(sf_oz))
 ```
 
 Plot with a custom palette. 
@@ -69,3 +71,8 @@ ozmap("abs_ced", col = opal(nrow(abs_ced)))
 ozmap("abs_ste", col = opal(nrow(abs_ste)))
 ```
 
+---
+
+  Please note that the 'ozmaps' project is released with a
+  [Contributor Code of Conduct](https://github.com/mdsumner/ozmaps/blob/master/CODE_OF_CONDUCT.md#contributor-code-of-conduct).
+  By contributing to this project, you agree to abide by its terms.
