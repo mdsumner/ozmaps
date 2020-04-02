@@ -7,7 +7,17 @@ dist: trusty
 cache: packages
 latex: false
 
-
+addons:
+  apt:
+    sources:
+      #- sourceline: 'ppa:opencpu/jq'
+      - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
+    packages:
+      - libudunits2-dev
+      - libproj-dev
+      - libgeos-dev
+  #    - libspatialite-dev
+      - libgdal-dev
 
 matrix:
     include:
