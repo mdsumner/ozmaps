@@ -1,3 +1,7 @@
+# ozmaps
+
+* Removed names from abs layer geometries see #3, thanks to @AltfunsMA 
+
 # ozmaps 0.3.6
 
 * Fixed large pdf artefact in tests. 

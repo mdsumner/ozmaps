@@ -7,6 +7,17 @@ fs <- c(grep("ced",f, value = TRUE),
 file.copy(fs,
           "data/")
 
+
+library(ozmaps)
+
+fixup <- function(x) {
+  sf::st_set_geometry(x, structure(unname(sf::st_geometry(x)), class = c("sfc_MULTIPOLYGON", "sfc", "list" )))
+}
+abs_ced <- fixup(abs_ced)
+abs_lga <- fixup(abs_lga)
+abs_ste <- fixup(abs_ste)
+usethis::use_data(abs_ced, abs_lga, abs_ste, overwrite = TRUE, compress = "xz", version = 2)
+
 # library(ozmaps)
 # library(tibble)
 # abs_ced <- sf::st_as_sf(as_tibble(abs_ced))
