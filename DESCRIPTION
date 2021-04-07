@@ -33,3 +33,5 @@ Roxygen: list(markdown = TRUE)
 URL: https://github.com/mdsumner/ozmaps
 BugReports: https://github.com/mdsumner/ozmaps/issues
 VignetteBuilder: knitr
+LazyDataCompression: xz
+
