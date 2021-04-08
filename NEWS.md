@@ -1,4 +1,6 @@
-# ozmaps
+# ozmaps 0.4.0
+
+* Now using LazyDataCompression xz. 
 
 * Removed names from abs layer geometries see #3, thanks to @AltfunsMA 
 
