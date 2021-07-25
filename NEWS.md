@@ -1,3 +1,8 @@
+# ozmaps dev
+
+* Avoid sf messages, update projection format. Thanks Edzer Pebesma https://github.com/mdsumner/ozmaps/issues/13 .
+
+
 # ozmaps 0.4.0
 
 * Now using LazyDataCompression xz. 
