@@ -16,6 +16,14 @@ fixup <- function(x) {
 abs_ced <- fixup(abs_ced)
 abs_lga <- fixup(abs_lga)
 abs_ste <- fixup(abs_ste)
+
+fixup2 <- function(x) {
+  sf::st_set_crs(x, sf::st_crs(x))
+}
+abs_ced <- fixup2(abs_ced)
+abs_lga <- fixup2(abs_lga)
+abs_ste <- fixup2(abs_ste)
+
 usethis::use_data(abs_ced, abs_lga, abs_ste, overwrite = TRUE, compress = "xz", version = 2)
 
 # library(ozmaps)
